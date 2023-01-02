@@ -1,0 +1,160 @@
+# Let author empty because for some reason these infos get exported
+# _after_ all latex_headers, so we cannot use them (or can we?)
+#+author:
+#+options: toc:nil
+#+language: pt
+#+latex_class: article
+#+latex_class_options: [a4paper, 11pt]
+# ==========================================================
+# ======================= Packages =========================
+# ==========================================================
+#+latex_header: \usepackage[brazil]{babel}
+#+latex_header: \usepackage[utf8]{inputenc}
+#+latex_header: \usepackage{fancyhdr}
+#+latex_header: \usepackage[margin=1.2in]{geometry}
+#+latex_header: \usepackage[table]{xcolor}
+#+latex_header: \usepackage{booktabs}
+#+latex_header: \usepackage{array}
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \usepackage{xcolor}
+#+latex_header: \usepackage{datetime2}
+# ==========================================================
+# ========================== Info ==========================
+# ==========================================================
+#+latex_header: \makeatletter
+#+latex_header: \DeclareRobustCommand*\course[1]{\gdef\@course{#1}}
+#+latex_header: \DeclareRobustCommand*\institution[1]{\gdef\@institution{#1}}
+#+latex_header: \DeclareRobustCommand*\semester[1]{\gdef\@semester{#1}}
+#+latex_header: \title{Plano de Ensino / Cronograma}
+#+latex_header: \author{Profs. Gleison S. D. Mendonça e Luigi D. C. Soares}
+#+latex_header: \course{Programação e Desenvolvimento de Software I}
+#+latex_header: \institution{DCC / ICEx / UFMG}
+#+latex_header: \semester{2022.2}
+#+latex_header: \let\thetitle\@title{}
+#+latex_header: \let\theauthor\@author{}
+#+latex_header: \let\thecourse\@course{}
+#+latex_header: \let\theinstitution\@institution{}
+#+latex_header: \let\thesemester\@semester{}
+#+latex_header: \let\thedate\@date{}
+#+latex_header: \makeatother
+#+latex_header: \DTMnewdatestyle{brDateStyle}{%
+#+latex_header:     \renewcommand{\DTMdisplaydate}[4]{##3/##2/##1}%
+#+latex_header:     \renewcommand{\DTMDisplaydate}{\DTMdisplaydate}}
+#+latex_header: \DTMsetdatestyle{brDateStyle}
+# ==========================================================
+# ======================= Page Style =======================
+# ==========================================================
+#+latex_header: \pagestyle{fancy}
+#+latex_header: \fancyhf{}
+#+latex_header: \setlength{\headheight}{15pt}
+#+latex_header: \lhead{\theauthor \\ \thecourse}
+#+latex_header: \rhead{\theinstitution \\ \thesemester}
+#+latex_header: \rfoot{\thepage}
+#+latex_header: \hypersetup{
+#+latex_header:     colorlinks,
+#+latex_header:     linkcolor={red!50!black},
+#+latex_header:     citecolor={blue!50!black},
+#+latex_header:     urlcolor={blue!80!black}
+#+latex_header: }
+
+# ==========================================================
+# ========================= Title ==========================
+# ==========================================================
+\begin{center}
+\Large\bfseries\thetitle
+\end{center}
+
+* Informações Gerais
+
+\setlist{leftmargin=1.5em, itemsep=0em}
+- Código da disciplina: :: DCC203
+- Semestre: :: 2022.2
+- Professores: :: Luigi Domenico Cecchini Soares e Gleison Souza Diniz Mendonça
+- Contatos: :: (Adicionar [PDS 1] no assunto)
+  - Turmas *TA1* e *TF*:  [[mailto:gleison.mendonca@dcc.ufmg.br][gleison.mendonca@dcc.ufmg.br]]
+  - Turmas *TA2* e *TM3*:  [[mailto:luigi.domenico@dcc.ufmg.br][luigi.domenico@dcc.ufmg.br]]
+- Horários: :: \phantom{}
+  - Turma *TA1* e *TA2*: 3a e 5a, 07:30 -- 09:10
+  - Turma *TM3*: 3a e 5a, 13:00 -- 14:40
+  - Turma *TF*: 3a 20:55 -- 22:35, 5a 19:00 -- 20:40
+- Salas: :: (a definir)
+
+* Ementa
+Introdução ao funcionamento de um computador e ao desenvolvimento de
+programas. Desenvolvimento de programas em uma linguagem de alto nível.  Tipos
+de dados simples, apontadores, variáveis compostas homogêneas e heterogêneas.
+Entrada e saída. Estruturas de controle e repetição. Funções e ferramentas de
+modularização.
+
+* Objetivos
+Os principais objetivos da disciplina são possibilitar ao aluno:
+- O conhecimento dos princípios de estrutura e funcionamento do computador;
+- O domínio de técnicas de resolução de problemas por computador (técnicas de
+  desenvolvimento de algoritmos), através de aulas teóricas e aulas em
+  laboratório;
+- A utilização do computador para a resolução de problemas computacionais
+  através da implementação de algoritmos.
+
+* Avaliação
+
+- Provas (3 x 25 pontos): 75 pontos
+- Atividades práticas (VPLs): 10 pontos
+- Trabalhos práticos: 15 pontos
+
+* Bibliografia
+
+- Livro-texto: Linguagem C completa e descomplicada, André Backes *[A]*
+- Complementar:
+  \vspace{-0.5em}
+  - Introdução às Estruturas de Dados, Waldemar Celes
+  - Projeto de Algoritmos com implementação em Pascal e C, 3a edição,
+    Nivio Ziviani
+  - Algoritmos estruturados, 3a edição, Harry Farrer, Becker, Faria, Matos,
+    dos Santos, Maia
+
+* Cronograma (\color{red}\bfseries Última atualização: \today)
+
+#+latex: \fcolorbox{black}{green!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Não há aula \qquad
+#+latex: \fcolorbox{black}{gray!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Sala de Aula \qquad
+#+latex: \fcolorbox{black}{yellow!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Laboratório \qquad
+#+latex: \fcolorbox{black}{red!15}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Prova
+
+#+attr_latex: :environment longtable :booktabs t :align >{\bfseries}ccl>{\bfseries}cc
+| *Aula*                    | *Data*  | *Tópico*                              | *Trabalhos Práticos* | *Ref.*      |
+|-------------------------+-------+-------------------------------------+--------------------+-----------|
+| \rowcolor{green!25}     | 23/08 | Não haverá aula: Recepção calouros  |                    |           |
+| \rowcolor{yellow!25} 01 | 25/08 | Apresentação do curso + Introdução  |                    |           |
+| \rowcolor{gray!25} 02   | 30/08 | Variáveis, Tipos e Entrada/Saída    |                    | A.2       |
+| \rowcolor{yellow!25} 03 | 01/09 | Prática 01                          |                    |           |
+| \rowcolor{gray!25} 04   | 06/09 | Operadores                          |                    | A.3       |
+| \rowcolor{yellow!25} 05 | 08/09 | Prática 02                          |                    |           |
+| \rowcolor{gray!25} 06   | 13/09 | Comandos condicionais               |                    | A.4       |
+| \rowcolor{yellow!25} 07 | 15/09 | Prática 03                          |                    |           |
+| \rowcolor{gray!25} 08   | 20/09 | Comando de repetição                |                    | A.5       |
+| \rowcolor{yellow!25} 09 | 22/09 | Prática 04                          |                    |           |
+| \rowcolor{gray!25} 10   | 27/09 | Arranjos e Strings                  |                    | A.6, A.7  |
+| \rowcolor{yellow!25} 11 | 29/09 | Prática 05 / Dúvidas                | Divulgação TP 01   |           |
+| \rowcolor{gray!25} 12   | 04/10 | Revisão / Dúvidas                   |                    |           |
+| \rowcolor{red!15} 13    | 06/10 | *Prova teórica 01*                    |                    |           |
+| \rowcolor{gray!25} 14   | 11/10 | Módulos e Funções                   |                    | A.9       |
+| \rowcolor{yellow!25} 15 | 13/10 | Prática 06                          |                    |           |
+| \rowcolor{gray!25} 16   | 18/10 | Tipos definidos pelo programador    |                    | A.8       |
+| \rowcolor{yellow!25} 17 | 20/10 | Prática 07                          |                    |           |
+| \rowcolor{gray!25} 18   | 25/10 | Ponteiros                           |                    | A.9, A.10 |
+| \rowcolor{yellow!25} 19 | 27/10 | Prática 08                          |                    |           |
+| \rowcolor{gray!25} 20   | 01/11 | Alocação Dinâmica + Prática 09      | Entrega TP 01      | A.11      |
+| \rowcolor{yellow!25} 21 | 03/11 | Revisão / Dúvidas                   | Divulgação TP 02   |           |
+| \rowcolor{red!15} 22    | 08/11 | *Prova teórica 02*                    |                    |           |
+| \rowcolor{yellow!25} 23 | 10/11 | Entrevista TP 01                    |                    |           |
+| \rowcolor{green!25}     | 15/11 | Feriado: Proclamação da República   |                    |           |
+| \rowcolor{yellow!25} 24 | 17/11 | Prática 10                          |                    |           |
+| \rowcolor{gray!25} 25   | 22/11 | Recursão                            |                    | A.9       |
+| \rowcolor{yellow!25} 26 | 24/11 | Prática 11                          |                    |           |
+| \rowcolor{gray!25} 27   | 29/11 | Arquivos + Prática 12               | Entrega TP 02      | A.12      |
+| \rowcolor{yellow!25} 28 | 01/12 | Revisão / Dúvidas                   |                    |           |
+| \rowcolor{red!15} 29    | 06/12 | *Prova teórica 03*                    |                    |           |
+| \rowcolor{green!25}     | 08/12 | Feriado: Nossa Senhora da Conceição |                    |           |
+| \rowcolor{green!25}     | 13/12 | Não haverá aula: Semifinal da Copa  |                    |           |
+| \rowcolor{red!15} 30    | 15/12 | *Prova substitutiva*                  |                    |           |
+|                         |       |                                     |                    |           |
+| \rowcolor{red!15}       | 20/12 | *Exame especial*                      |                    |           |

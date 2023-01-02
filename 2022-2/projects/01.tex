@@ -1,0 +1,137 @@
+% Created 2022-11-01 ter 10:40
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage[brazil, portuges]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[margin=1.2in]{geometry}
+\usepackage[table, dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{datetime2}
+\usepackage{tikz}
+\usetikzlibrary{matrix, positioning}
+\makeatletter
+\DeclareRobustCommand*\course[1]{\gdef\@course{#1}}
+\DeclareRobustCommand*\institution[1]{\gdef\@institution{#1}}
+\DeclareRobustCommand*\semester[1]{\gdef\@semester{#1}}
+\title{Trabalho Prático 1 - Ordenação}
+\author{Profs. Gleison Mendonça e Luigi Soares}
+\course{Programação e Desenvolvimento de Software I}
+\institution{DCC / ICEx / UFMG}
+\semester{2022.2}
+\let\thetitle\@title{}
+\let\theauthor\@author{}
+\let\thecourse\@course{}
+\let\theinstitution\@institution{}
+\let\thesemester\@semester{}
+\let\thedate\@date{}
+\makeatother
+\DTMnewdatestyle{brDateStyle}{%
+\renewcommand{\DTMdisplaydate}[4]{##3/##2/##1}%
+\renewcommand{\DTMDisplaydate}{\DTMdisplaydate}}
+\DTMsetdatestyle{brDateStyle}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\lhead{\theauthor \\ \thecourse}
+\rhead{\theinstitution \\ \thesemester}
+\rfoot{\thepage}
+\hypersetup{
+colorlinks,
+linkcolor={red!50!black},
+citecolor={blue!50!black},
+urlcolor={blue!80!black}
+}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.6)}, 
+ pdflang={Portuges}}
+\begin{document}
+
+\begin{center}
+\Large\bfseries\thetitle
+\end{center}
+
+Um algoritmo de ordenação é um algoritmo que coloca os elementos de uma lista
+em uma determinada ordem (por exemplo, ascendente ou descendente). Formalmente,
+o resultado de um algoritmo de ordenação deve satisfazer duas condições:
+
+\begin{itemize}
+\item A saída está em ordem monotônica (nenhum elemento é menor/maior que o anterior,
+de acordo com a ordem requerida)
+\item A saída é uma permutação da sequência original (i.e. mantém todos os elementos originais)
+\end{itemize}
+
+Vamos considerar uma ordem ascendente. O trabalho é dividido em 3 etapas:
+
+\begin{enumerate}
+\item Implementar uma função \textbf{swap} (troca), que recebe um arranjo \textbf{A} e duas posições
+\textbf{i} e \textbf{j} e troca o valor de \textbf{A[i]} e \textbf{A[j]}. Esta função não possui nenhum retorno
+(i.e. void). A troca deve ser feita no arranjo passado por parâmetro.
+
+\item Implementar uma função \textbf{sorted} (ordenado), que recebe um arranjo \textbf{A}, o tamanho
+\textbf{n} do arranjo e retorna verdadeiro se \textbf{A} está ordenado ou falso caso contrário.
+
+\item Implementar o algoritmo de ordenação conhecido como \textbf{Bubble Sort}. Você \textbf{deve} implementar este
+algoritmo em específico. A função \textbf{bubblesort} recebe um arranjo \textbf{A} e o tamanho \textbf{n} do arranjo.
+A função não possui nenhum retorno (i.e. void). A ordenação deve ser feita no próprio arranjo
+\textbf{A} passado por parâmetro para a função. \\
+
+O Bubble Sort, ou ordenação por flutuação (literalmente, "por bolha"), é um algoritmo de ordenação
+dos mais simples. A ideia é percorrer o arranjo diversas vezes, e a cada passagem fazer flutuar para
+o topo o maior elemento da sequência. Para tanto, comparamos dois elementos adjacentes e, caso estejam
+na ordem incorreta, os trocamos de lugar. Para exemplificar, considere o arranjo [5, 2, 8, 3, 7]:
+
+\begin{center}
+\begin{tikzpicture}[array/.style={
+     draw, text=white, font=\bfseries, fill=NavyBlue, minimum width=2em,
+     minimum height=2em, outer sep=0pt
+ }]
+     \matrix (A0) [matrix of math nodes, nodes={array, anchor=center}]
+         {|[fill=RedOrange]|5 & |[fill=RedOrange]|2 & 8 & 3 & 7 \\};
+     \node[right = 0.5cm of A0, font=\bfseries] (swap0) {5 > 2, troca!};
+
+     \matrix[below = 0.25cm of A0] (A1) [matrix of math nodes, nodes={array, anchor=center}]
+         {2 & |[fill=RedOrange]|5 & |[fill=RedOrange]|8 & 3 & 7 \\};
+     \node[right = 0.5cm of A1, font=\bfseries] (swap1) {5 < 8, não troca!};
+
+     \matrix[below = 0.25cm of A1] (A2) [matrix of math nodes, nodes={array, anchor=center}]
+         {2 & 5 & |[fill=RedOrange]|8 & |[fill=RedOrange]|3 & 7 \\};
+     \node[right = 0.5cm of A2, font=\bfseries] (swap2) {8 > 3, troca!};
+
+     \matrix[below = 0.25cm of A2] (A3) [matrix of math nodes, nodes={array, anchor=center}]
+         {2 & 5 & 3 & |[fill=RedOrange]|8 & |[fill=RedOrange]|7 \\};
+     \node[right = 0.5cm of A3, font=\bfseries] (swap2) {8 > 7, troca!};
+
+     \matrix[below = 0.25cm of A3] (A4) [matrix of math nodes, nodes={array, anchor=center}]
+         {2 & 5 & 3 & 7 & |[fill=ForestGreen]|8 \\};
+\end{tikzpicture}
+\end{center}
+
+Note que, ao final das trocas, o maior elemento (8) foi movido para a posição
+ correta.  O restante do arranjo (2, 5, 3, 7), no entanto, ainda não está
+ ordenado. Encontramos a posição do maior elemento. Agora, devemos repetir o
+ processo para o subarranjo que ainda não está ordenado, para encontrar a
+ posição do segundo maior elemento, do terceiro maior elemento e assim por
+ diante. Quando podemos parar? Pense nisso!
+\end{enumerate}
+\end{document}

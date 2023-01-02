@@ -1,0 +1,164 @@
+
+
+
+#+title: Apresentação do Curso
+
+
+
+#+author: Luigi D. C. Soares
+#+email: <luigi.domenico@dcc.ufmg.br>
+
+#+subtitle: Progamação e Desenvolvimento de Software I
+
+#+date: DCC/UFMG (25/08/2022)
+
+#+startup: beamer latexpreview
+#+options: H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+options: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+latex_class: beamer
+#+latex_class_options: [t, aspectratio=169]
+#+latex_header: \usepackage{tikz}
+#+beamer_header: \title[Apresentação do Curso]{Apresentação do Curso}
+#+beamer_header: \subtitle{Programação e Desenvolvimento de Software I}
+#+beamer_header: \author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+#+beamer_header: Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+#+beamer_header: \texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+#+beamer_header: \institute[DCC/UFMG]{}
+#+beamer_header: \date[25/08/2022]{}
+#+beamer_header: %\usetheme{saori}
+#+beamer_header: \usetheme{ufmg}
+
+
+* Objetivos
+
+- Introduzir o aluno aos conceitos de *algoritmos* e *estruturas de dados*
+
+* Objetivos
+
+- Introduzir o aluno aos conceitos de *algoritmos* e *estruturas de dados*
+  - Noções da organização e funcionamento de um computador
+
+* Objetivos
+
+- Introduzir o aluno aos conceitos de *algoritmos* e *estruturas de dados*
+  - Noções da organização e funcionamento de um computador
+  - Noções de linguagens imperativas (vamos utilizar a linguagem C)
+
+* Objetivos
+
+- Introduzir o aluno aos conceitos de *algoritmos* e *estruturas de dados*
+  - Noções da organização e funcionamento de um computador
+  - Noções de linguagens imperativas (vamos utilizar a linguagem C)
+  - Noções de estruturas de dados
+
+* Por quê aprender programação?
+
+- Diversas áreas se beneficiam de programação
+
+* Por quê aprender programação?
+
+- Diversas áreas se beneficiam de programação
+  - Simulações, análise de dados, sistemas embutidos, sensores
+
+* Por quê aprender programação?
+
+- Diversas áreas se beneficiam de programação
+  - Simulações, análise de dados, sistemas embutidos, sensores
+  - Matemática computacional
+
+* Por quê aprender programação?
+
+- Diversas áreas se beneficiam de programação
+  - Simulações, análise de dados, sistemas embutidos, sensores
+  - Matemática computacional
+  - Física computacional
+
+* Por quê aprender programação?
+
+- Diversas áreas se beneficiam de programação
+  - Simulações, análise de dados, sistemas embutidos, sensores
+  - Matemática computacional
+  - Física computacional
+  - Química, Estatística, Economia, Linguística
+
+* Organização do curso - Avaliação
+
+- Provas teóricas: 3 x 25 pontos
+- Laboratório: 10 pontos
+- Trabalhos práticos: 15 pontos
+
+* Organização do curso - Aulas
+
+- Aulas teóricas:
+  - Apresentação dos conceitos
+  - Toda terça-feira
+
+* Organização do curso - Aulas
+
+- Aulas teóricas:
+  - Apresentação dos conceitos
+  - Toda terça-feira
+
+- Aulas práticas:
+  - Toda quinta-feira
+  - Suporte às aulas teóricas
+  - Resolução de exercícios e dúvidas
+  - Os exercícios serão liberados no início da aula e a entrega será até terça a noite
+  - Soluções dos exercícios serão liberadas toda quarta
+
+* Organização do curso - Laboratórios
+
+- Laboratórios Virtuais de Programação (VPL)
+  - Ambiente de programação integrado ao Moodle
+  - Correção automática utilizando diversos casos de teste
+  - Lembre-se sempre de apertar o botão *avaliar*
+
+* Organização do curso - Trabalhos Práticos
+
+- Individual
+- Entrega no Moodle (VPL), correção automática com verificação de cópias
+- Julgamento do código:
+  - Facilidade de leitura
+  - Comentários (se pertinente)
+
+* Organização do curso - Provas
+
+- Conteúdo base: livro, slides, exercícios
+- Faça todos os VPLs para praticar
+- Procure exercícios além dos VPLs (livro, internet)
+  - Codewars ([[https://codewars.com]])
+  - Exercism (https://exercism.org/tracks/c/exercises)
+  - LeetCode (https://leetcode.com/problemset/all/)
+  - etc
+
+* Bibliografia
+
+- Livro-texto: Linguagem C completa e descomplicada, André Backes
+
+- Outros:
+  - Introdução às Estruturas de Dados, Waldemar Celes
+  - Projeto de Algoritmos com implementação em Pascal e C, 3a edição,
+    Nivio Ziviani
+  - Algoritmos estruturados, 3a edição, Harry Farrer, Becker, Faria, Matos,
+    dos Santos, Maia
+
+* Notas e Frequência
+
+- Terá lista de presença toda aula
+- Presença não é obrigatória, só venha se quiser
+
+- Se nota >= 60, aprovado!
+- Se nota < 60 e for infrequente (frequência < 75%)
+  - Reprovado, conceito F
+  - Não tem direito a exame especial
+
+- Exame especial: matéria do semestre inteiro!
+
+* Dúvidas?
+
+- Fórum do Moodle (preferência)
+- E-mail:
+  - [[mailto:gleison.mendonca@dcc.ufmg.br][gleison.mendonca@dcc.ufmg.br]] (Turmas *TA1* e *TF*)
+  - [[mailto:luigi.domenico@dcc.ufmg.br][luigi.domenico@dcc.ufmg.br]] (Turmas *TA2* e *TM3*)
+  - Adicionar [PDS 1] ao assunto
+- Dúvidas complexas: podemos marcar um horário para atendimento individual

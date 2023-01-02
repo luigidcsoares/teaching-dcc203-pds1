@@ -1,0 +1,935 @@
+
+
+
+#+title: Variáveis e Tipos
+
+
+
+#+author: Luigi D. C. Soares
+#+email: <luigi.domenico@dcc.ufmg.br>
+
+#+subtitle: Progamação e Desenvolvimento de Software I
+
+#+date: DCC/UFMG (30/08/2022)
+
+#+startup: beamer
+#+options: H:1 num:t toc:nil \n:nil @:t ::t |:t ^:{} -:t f:t *:t <:t
+#+options: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+latex_class: beamer
+#+latex_class_options: [t, aspectratio=169]
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usetikzlibrary{calc, tikzmark}
+#+latex_header: \usepackage{booktabs}
+#+beamer_header: \title[Variáveis e Tipos]{Variáveis e Tipos}
+#+beamer_header: \subtitle{Programação e Desenvolvimento de Software I}
+#+beamer_header: \author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+#+beamer_header: Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+#+beamer_header: \texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+#+beamer_header: \institute[DCC/UFMG]{}
+#+beamer_header: \date[30/08/2022]{}
+#+beamer_header: %\usetheme{saori}
+#+beamer_header: %\usemintedstyle{native}
+#+beamer_header: \usetheme{ufmg}
+
+* Notação Decimal vs Binária
+
+- Decompondo um número representado na notação decimal
+
+\begin{align*}
+    {\color{highlight}19}{\color{blue!80}.625}
+    =\;& \phantom{{\color{highlight}1} \times 10^{1} +
+         {\color{highlight}9} \times 10^{0} +
+         {\color{blue!80}6} \times 10^{-1} +
+         {\color{blue!80}2} \times 10^{-2} +
+         {\color{blue!80}5} \times 10^{-3}}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- Decompondo um número representado na notação decimal
+
+\begin{align*}
+    {\color{highlight}19}{\color{blue!80}.625}
+    =\;& {\color{highlight}1} \times 10^{1} +
+         {\color{highlight}9} \times 10^{0} +
+         {\color{blue!80}6} \times 10^{-1} +
+         {\color{blue!80}2} \times 10^{-2} +
+         {\color{blue!80}5} \times 10^{-3}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- Decompondo um número representado na notação decimal
+
+\begin{align*}
+    {\color{highlight}19}{\color{blue!80}.625}
+    =\;& {\color{highlight}1} \times 10^{1} +
+         {\color{highlight}9} \times 10^{0} +
+         {\color{blue!80}6} \times 10^{-1} +
+         {\color{blue!80}2} \times 10^{-2} +
+         {\color{blue!80}5} \times 10^{-3} \\
+    =\;& {\color{highlight}10} +
+         {\color{highlight}9} +
+         {\color{blue!80}0.6} +
+         {\color{blue!80}0.02} +
+         {\color{blue!80}0.005}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- De binário para decimal
+
+\begin{align*}
+    {\color{highlight}10011}\color{blue!80}.101
+    =\;& \phantom{{\color{highlight}1} \times 2^{4} +
+         {\color{highlight}0} \times 2^{3} +
+         {\color{highlight}0} \times 2^{2} +
+         {\color{highlight}1} \times 2^{1} +
+         {\color{highlight}1} \times 2^{0} +}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- De binário para decimal
+
+\begin{align*}
+    {\color{highlight}10011}\color{blue!80}.101
+    =\;& {\color{highlight}1} \times 2^{4} +
+         {\color{highlight}0} \times 2^{3} +
+         {\color{highlight}0} \times 2^{2} +
+         {\color{highlight}1} \times 2^{1} +
+         {\color{highlight}1} \times 2^{0} + \\
+     \;& {\color{blue!80}1} \times 2^{-1} +
+         {\color{blue!80}0} \times 2^{-2} +
+         {\color{blue!80}1} \times 2^{-3}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- De binário para decimal
+
+\begin{align*}
+    {\color{highlight}10011}\color{blue!80}.101
+    =\;& {\color{highlight}1} \times 2^{4} +
+         {\color{highlight}0} \times 2^{3} +
+         {\color{highlight}0} \times 2^{2} +
+         {\color{highlight}1} \times 2^{1} +
+         {\color{highlight}1} \times 2^{0} + \\
+     \;& {\color{blue!80}1} \times 2^{-1} +
+         {\color{blue!80}0} \times 2^{-2} +
+         {\color{blue!80}1} \times 2^{-3} \\
+    =\;& {\color{highlight}16} +
+         {\color{highlight}0} +
+         {\color{highlight}0} +
+         {\color{highlight}2} +
+         {\color{highlight}1} +
+         {\color{blue!80}0.5} +
+         {\color{blue!80}0} +
+         {\color{blue!80}0.125} \\
+    =\;& {\color{highlight}19}{\color{blue!80}.625}
+\end{align*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                        \quad 19& &&\; /\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 4& &&\; /\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 4& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 2& &&\; /\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 4& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 2& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 1& &&\; /\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 4& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 2& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 1& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 0 \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             19& &&\; /\; 2 = \\
+    \tikzmark{end-i}{\color{highlight}1}\quad 9& &&\; /\; 2 = \\
+    {\color{highlight}1}\quad 4& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 2& &&\; /\; 2 = \\
+    {\color{highlight}0}\quad 1& &&\; /\; 2 = \\
+    \tikzmark{begin-i}{\color{highlight}1}\quad 0 \\
+\end{alignat*}
+
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[highlight, thick, ->] ($(pic cs:begin-i) + (-0.25, 0)$) -- ($(pic cs:end-i) + (-0.25, +0.25)$);
+\end{tikzpicture}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+        \phantom{1}&\phantom{+ \quad}0.625&& \; \times\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             &\phantom{+ \quad}0.625&& \; \times\; 2 = \\
+    {\color{blue!80}1} &+ \quad 0.25&& \; \times\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             &\phantom{+ \quad}0.625&& \; \times\; 2 = \\
+    {\color{blue!80}1} &+ \quad 0.25&& \; \times\; 2 = \\
+    {\color{blue!80}0} &+ \quad 0.5&& \; \times\; 2 = \\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             &\phantom{+ \quad}0.625&& \; \times\; 2 = \\
+    {\color{blue!80}1} &+ \quad 0.25&& \; \times\; 2 = \\
+    {\color{blue!80}0} &+ \quad 0.5&& \; \times\; 2 = \\
+    {\color{blue!80}1} & +\quad 0\\
+\end{alignat*}
+
+* Notação Decimal vs Binária
+
+- Caminho inverso: decimal para binário
+
+\begin{alignat*}{2}
+                             &\phantom{+ \quad}0.625&& \; \times\; 2 = \\
+    \tikzmark{begin-f}{\color{blue!80}1} &+ \quad 0.25&& \; \times\; 2 = \\
+    {\color{blue!80}0} &+ \quad 0.5&& \; \times\; 2 = \\
+    \tikzmark{end-f}{\color{blue!80}1} & +\quad 0\\
+\end{alignat*}
+
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[blue!80, thick, ->] ($(pic cs:begin-f) + (-0.25, +0.25)$) -- ($(pic cs:end-f) + (-0.25, 0)$);
+\end{tikzpicture}
+
+* Notação Decimal vs Binária
+
+- \(0.6 =\; ?\)
+- Quantos bits precisamos depois do "."?
+
+* Notação Decimal vs Binária
+
+- \(0.6 =\; 0.10011001\ldots\)
+- Quantos bits precisamos depois do "."? *Infinitos*
+
+\begin{alignat*}{2}
+                             &\phantom{+ \quad}\;\, 0.6&& \; \times\; 2 = \\
+    {\color{blue!80}1} &+ \quad 0.2&& \; \times\; 2 = \\
+    {\color{blue!80}0} &+ \quad 0.4&& \; \times\; 2 = \\
+    {\color{blue!80}0} &+ \quad 0.8&& \; \times\; 2 = \\
+    {\color{blue!80}1} &+ \quad 0.6&& \; \times\; 2 = \ldots\\
+\end{alignat*}
+
+* Representando números inteiros
+
+- Forma mais simples: *sinal-magnitude*
+  - O @@latex:{\bfseries\color{highlight}bit mais significativo}@@ corresponde ao sinal
+  - Os demais correspondem ao valor absoluto do número
+
+* Representando números inteiros
+
+- Forma mais simples: *sinal-magnitude*
+  - O @@latex:{\bfseries\color{highlight}@@bit mais significativo@@latex:}@@ corresponde ao sinal
+  - Os demais correspondem ao valor absoluto do número
+
+- Exemplo: considere uma representação usando cinco dígitos binários (*bits*)
+
+** Exemplo :B_column:
+:properties:
+:beamer_col: 0.5
+:end:
+
+#+attr_latex: :booktabs t :align *{2}{c}
+| *Decimal* | *Binário*                                      |
+|---------+----------------------------------------------|
+| \(+5\)  | @@latex:{\bfseries\color{highlight}0}@@ 0101 |
+| \(-3\)  | @@latex:{\bfseries\color{highlight}1}@@ 0011 |
+
+** Somando :B_column:
+:properties:
+:beamer_col: 0.5
+:end:
+
+|   | 00101 (+5)     |
+| + | 10011 (-3)     |
+|---+----------------|
+|   | 11000 (-8 ???) |
+
+* Representando números inteiros
+
+- Forma mais simples: *sinal-magnitude*
+  - O @@latex:{\bfseries\color{highlight}@@bit mais significativo@@latex:}@@ corresponde ao sinal
+  - Os demais correspondem ao valor absoluto do número
+
+- *Desvantagens*:
+  - A representação dificulta os cálculos
+  - Duas notações para o zero (\(+0\) e \(-0\))
+
+* Representando números inteiros
+
+- Forma mais utilizada: *complemento de 2*
+  - Números positivos: idêntica à forma sinal-magnitude
+
+* Representando números inteiros
+
+- Forma mais utilizada: *complemento de 2*
+  - Números positivos: idêntica à forma sinal-magnitude
+  - Números negativos: a representação se dá em dois passos
+    1. Inverter os bits (0 vira 1, 1 vira 0) da representação do número positvo
+    2. Somar 1 ao resultado
+
+* Representando números inteiros
+
+- Forma mais utilizada: *complemento de 2*
+  - Números positivos: idêntica à forma sinal-magnitude
+  - Números negativos: a representação se dá em dois passos
+    1. Inverter os bits (0 vira 1, 1 vira 0) da representação do número positvo
+    2. Somar 1 ao resultado
+
+** Exemplo :B_column:
+:properties:
+:beamer_col: 0.5
+:end:
+
+#+attr_latex: :booktabs t :align *{2}{c}
+| *Decimal* | *Binário*                                      |
+|---------+----------------------------------------------|
+| \(+6\)  | @@latex:{\bfseries\color{highlight}0}@@ 0110 |
+| \(-6\)  | @@latex:{\bfseries\color{highlight}1}@@ 1010 |
+| \(+5\)  | @@latex:{\bfseries\color{highlight}0}@@ 0101 |
+| \(-3\)  | @@latex:{\bfseries\color{highlight}1}@@ 1101 |
+
+** Somando :B_column:
+:properties:
+:beamer_col: 0.5
+:end:
+
+|   | 00101 (+5) |
+| + | 11101 (-3) |
+|---+------------|
+|   | 00010  (+2) |
+
+* Representando números reais
+
+- Representação com ponto fixo: \(12,34\)
+- Representação com *ponto (vírgula) flutuante*: \(0,1234 \times 10^{2}\)
+- A representação com ponto flutuante segue padrões internacionais
+  (IEEE-754 e IEC-559)
+
+* Representando dados não-numéricos
+
+- Padrões internacionais para a codificação de caracteres
+  (*ASCII*, *ANSI*, *Unicode*).
+- A Linguagem C adota o padrão ASCII (American Standard Code for Information Interchange):
+  - Código para representar caracteres como números
+  - Cada caractere é representado por *1 byte*, ou seja, uma *seqüência de 8 bits*
+- https://pt.wikipedia.org/wiki/ASCII
+
+* Representando dados não-numéricos
+
+- Padrões internacionais para a codificação de caracteres
+  (*ASCII*, *ANSI*, *Unicode*).
+- A Linguagem C adota o padrão ASCII (American Standard Code for Information Interchange):
+  - Código para representar caracteres como números
+  - Cada caractere é representado por *1 byte*, ou seja, uma *seqüência de 8 bits*
+- https://pt.wikipedia.org/wiki/ASCII
+
+#+attr_latex: :booktabs t :align *{3}{c}
+| *Caractere* | *Decimal* | *Binário*   |
+|-----------+---------+-----------|
+| =\n=        |      10 | 0000 1010 |
+| 0         |      48 | 0011 0000 |
+| @         |      64 | 0100 0000 |
+| A         |      65 | 0100 0001 |
+| a         |      97 | 0110 0001 |
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+- Função principal (*main*): ponto de entrada do programa
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+- Função principal (*main*): ponto de entrada do programa
+- A linguagem C é *case sensitive*
+  - *Main* ou *MAIN*, por exemplo, provocam erros de sintaxe
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+- Função principal (*main*): ponto de entrada do programa
+- A linguagem C é *case sensitive*
+  - *Main* ou *MAIN*, por exemplo, provocam erros de sintaxe
+- Escrever um programa em C corresponde a escrever o *corpo* da função principal
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+- Função principal (*main*): ponto de entrada do programa
+- A linguagem C é *case sensitive*
+  - *Main* ou *MAIN*, por exemplo, provocam erros de sintaxe
+- Escrever um programa em C corresponde a escrever o *corpo* da função principal
+- O *corpo* de uma função sempre começa com abre-chaves *{* e termina com fecha-chaves *}*
+
+* Escrevendo um programa em C
+
+- Inclusão dos cabeçalhos das bibliotecas que vamos utilizar
+- Função principal (*main*): ponto de entrada do programa
+- A linguagem C é *case sensitive*
+  - *Main* ou *MAIN*, por exemplo, provocam erros de sintaxe
+- Escrever um programa em C corresponde a escrever o *corpo* da função principal
+- O *corpo* de uma função sempre começa com abre-chaves *{* e termina com fecha-chaves *}*
+- Comandos devem terminar com ponto e vírgula *;*
+
+* Escrevendo um programa em C
+#+latex: \vspace{-0.5cm}
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h> // Cabeçalho da biblioteca de entrada/saída
+// Função main: ponto de entrada do programa ("//" indica um comentário)
+int main(int argc, char *argv[]) {
+    /*
+      Corpo da função principal
+      (comentário em múltiplas linhas)
+     */
+    return 0;
+}
+#+end_src
+
+* Variáveis
+#+latex: \vspace{-0.5cm}
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int a = 7;
+    int b = 3;
+    int q = 0; // Inicializando quociente
+    while (b <= a) {
+        q = q + 1; // Somar 1 ao valor de q
+        a = a - b; // Subtrair B do valor de A
+    }
+    // ...
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Os dados de um programa precisam ser armazenados na *memória* do computador
+
+* Variáveis
+
+- Os dados de um programa precisam ser armazenados na *memória* do computador
+- Cada posição de memória possui um *endereço*
+
+* Variáveis
+
+- Os dados de um programa precisam ser armazenados na *memória* do computador
+- Cada posição de memória possui um *endereço*
+- Uma variável é um *nome simbólico* (ou etiqueta) de uma posição de memória
+
+* Variáveis
+
+- Os dados de um programa precisam ser armazenados na *memória* do computador
+- Cada posição de memória possui um *endereço*
+- Uma variável é um *nome simbólico* (ou etiqueta) de uma posição de memória
+#+latex: \vfill{}\vspace{0.575cm}
+#+attr_latex: :booktabs t :align *{11}{c}
+| *Variável* | *Endereço* | *...* | *b_{24}* | *b_{25}* | *b_{26}* | *b_{27}* | *b_{28}* | *b_{29}* | *b_{30}* | *b_{31}* |
+|----------+----------+-----+--------+--------+--------+--------+--------+--------+--------+--------|
+| a        | e_{0}    |   0 |      0 |      0 |      0 |      0 |      0 |      1 |      1 |      1 |
+| b        | e_{1}    |   0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |      1 |
+| q        | e_{2}    |   0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |
+
+* Variáveis
+
+- Os dados de um programa precisam ser armazenados na *memória* do computador
+- Cada posição de memória possui um *endereço*
+- Uma variável é um *nome simbólico* (ou etiqueta) de uma posição de memória
+- Seu *conteúdo pode variar* durante a execução do programa
+#+latex: \vfill{}
+#+attr_latex: :booktabs t :align *{11}{c}
+| *Variável* | *Endereço* | *...* | *b_{24}* | *b_{25}* | *b_{26}* | *b_{27}* | *b_{28}* | *b_{29}* | *b_{30}* | *b_{31}* |
+|----------+----------+-----+--------+--------+--------+--------+--------+--------+--------+--------|
+| a        | e_{0}    |   0 |      0 |      0 |      0 |      0 |      0 |      1 |      *0* | *0*      |
+| b        | e_{1}    |   0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 | 1      |
+| q        | e_{2}    |   0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 | *1*      |
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada:
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada:
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    // Error: 'X' undeclared (first use in this function)
+    printf("X: %d\n", X);
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x, y;
+    x = 10;
+    y = 20;
+    printf("X: %d\n", x);
+    printf("Y: %d\n", y);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: X: 10
+: Y: 20
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    /* Error: 'X' undeclared (first use in this function)
+       Note que 'X' é diferente de 'x' */
+    printf("X: %d\n", X);
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    // Error: expected identifier or ‘(’ before numeric constant
+    int 1;
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+  - Caracteres devem ser letras, números ou underscores
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+  - Caracteres devem ser letras, números ou underscores
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    // Error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or
+    // ‘__attribute__’ before numeric constant
+    int teste.123;
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+  - Caracteres devem ser letras, números ou underscores
+  - Palavras-chave não podem ser usadas como nomes
+
+* Variáveis
+
+- Deve ser definida antes de ser utilizada: *\color{highlight}tipo_variável \color{blue!80}lista_de_variáveis*
+- \color{black}Nome:
+  - /Case sensitive/ (letras maiúsculas e minúsculas são consideradas diferentes)
+  - Pode ter um ou mais caracteres
+  - Deve iniciar com letras ou underscore (_)
+  - Caracteres devem ser letras, números ou underscores
+  - Palavras-chave não podem ser usadas como nomes
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    // Error: expected identifier or ‘(’ before ‘while’
+    int while;
+    return 0;
+}
+#+end_src
+
+* Variáveis
+
+- Lista de palavras-chave: *auto break case char const continue default do double*
+  *else enum extern float for goto if int long register return short signed*
+  *sizeof static struct switch typeof union unsigned void volatile while*
+
+* Variáveis
+
+- Tipo: Define os valores que ela pode assumir e as operações que podem ser
+  realizadas com ela
+
+- Exemplo:
+  - Tipo *int* recebe apenas valores inteiros
+  - Tipo *float* armazena apenas valores reais
+
+* Tipos
+
+- Diferentes tipos possuem tamanhos diferentes (em *bytes*, 1 byte = 8 bits)
+- Tamanhos podem variar de acordo com o sistema
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    printf("Tamanho char: %d bytes\n", sizeof(char));
+    printf("Tamanho short: %d bytes\n", sizeof(short));
+    printf("Tamanho int: %d bytes\n", sizeof(int));
+    printf("Tamanho long: %d bytes\n", sizeof(long));
+    printf("Tamanho float: %d bytes\n", sizeof(float));
+    printf("Tamanho double: %d bytes\n", sizeof(double));
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Tamanho char: 1 bytes
+: Tamanho short: 2 bytes
+: Tamanho int: 4 bytes
+: Tamanho long: 8 bytes
+: Tamanho float: 4 bytes
+: Tamanho double: 8 bytes
+
+* Tipos
+
+- Diferentes tipos possuem tamanhos diferentes (em *bytes*, 1 byte = 8 bits)
+- Tamanhos podem variar de acordo com o sistema
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    printf("Tamanho long double: %d bytes\n", sizeof(long double));
+    printf("Tamanho unsigned char: %d bytes\n", sizeof(unsigned char));
+    printf("Tamanho unsigned short: %d bytes\n", sizeof(unsigned short));
+    printf("Tamanho unsigned int: %d bytes\n", sizeof(unsigned int));
+    printf("Tamanho unsigned long: %d bytes\n", sizeof(unsigned long));
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Tamanho long double: 16 bytes
+: Tamanho unsigned char: 1 bytes
+: Tamanho unsigned short: 2 bytes
+: Tamanho unsigned int: 4 bytes
+: Tamanho unsigned long: 8 bytes
+
+
+* Tipos
+
+- Diferentes tipos possuem tamanhos diferentes (em *bytes*, 1 byte = 8 bits)
+- Tamanhos podem variar de acordo com o sistema
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+#include <limits.h>
+int main(int argc, char *argv[]) {
+    printf("char: %d a %d\n", CHAR_MIN, CHAR_MAX);
+    printf("short: %d a %d\n", SHRT_MIN, SHRT_MAX);
+    printf("int: %d a %d\n", INT_MIN, INT_MAX);
+    printf("long: %ld a %ld\n", LONG_MIN, LONG_MAX);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: char: -128 a 127
+: short: -32768 a 32767
+: int: -2147483648 a 2147483647
+: long: -9223372036854775808 a 9223372036854775807
+: unsigned char: 0 a 255
+
+* Tipos
+
+- Diferentes tipos possuem tamanhos diferentes (em *bytes*, 1 byte = 8 bits)
+- Tamanhos podem variar de acordo com o sistema
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
+int main(int argc, char *argv[]) {
+    printf("unsigned char: %u a %u\n", 0, (unsigned int) UCHAR_MAX);
+    printf("float: %e a %e\n", -FLT_MAX, FLT_MAX);
+    printf("double: %e a %e\n", -DBL_MAX, DBL_MAX);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: unsigned char: 0 a 255
+: float: -3.402823e+38 a 3.402823e+38
+: double: -1.797693e+308 a 1.797693e+308
+
+* Atribuição
+
+- Operador de atribuição: *=*
+- *\color{highlight}nome_da_variável \color{black}= \color{blue!80}expressão, valor ou constante;*
+- A linguagem C suporta múltiplas atribuições
+
+* Atribuição
+
+- Operador de atribuição: *=*
+- *\color{highlight}nome_da_variável \color{black}= \color{blue!80}expressão, valor ou constante;*
+- A linguagem C suporta múltiplas atribuições
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 5;
+    int y, z;
+    z = y = x + 3;
+    char c = 'a'; // Caracteres ficam sempre entre aspas simples
+    return 0;
+}
+#+end_src
+
+* Conversão de tipos
+
+- O compilador converte automaticamente o valor do lado direito para o
+  tipo do lado esquerdo da atribuição
+- A conversão também pode ser feita de forma explícita
+- *Pode haver perda de informação*
+
+* Conversão de tipos
+
+- O compilador converte automaticamente o valor do lado direito para o
+  tipo do lado esquerdo da atribuição
+- A conversão também pode ser feita de forma explícita
+- *Pode haver perda de informação*
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    float x = 10.5;
+    int y = x; // y recebe somente a parte inteira de x
+    int z = (int) x; // Convertendo de forma explícita
+    return 0;
+}
+#+end_src
+
+* Constantes
+
+- Como uma variável, uma constante também armazena um valor na memória do computador
+- Entretanto, esse valor não pode ser alterado
+- Para constantes é obrigatória a atribuição do valor
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    const double pi = 3.1415;
+    return 0;
+}
+#+end_src
+
+* Constantes char
+
+#+attr_latex: :booktabs t :align *{2}{c}
+| *Código* | *Comando*                     |
+|--------+-----------------------------|
+| =\b=     | retrocesso (backspace)      |
+| =\n=     | nova linha (new line)       |
+| =\t=     | tabulação horizontal        |
+| =\'=     | Apóstrofo                   |
+| =\"=     | Aspas                       |
+| =\\=     | Barra invertida (backslash) |
+| ...    | ...                         |
+
+* Comando de saída
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    printf("Inteiro: %d\n", 10);
+    printf("Real: %f\n", 10.5);
+    printf("Inteiro (long): %ld\n", 10 + 2);
+    printf("Múltiplos valores: %d \t vs \t %f\n", 1, 3.14);
+    printf("Caractere: %c\n", 'a');
+    printf("String (sequência de caracteres): %s\n", "hello world");
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Inteiro: 10
+: Real: 10.500000
+: Inteiro (long): 12
+: Múltiplos valores: 1 	 vs 	 3.140000
+: Caractere: a
+: String (sequência de caracteres): hello world
+
+* Comando de saída
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    // Inteiros com zeros a esquerda:
+    printf("%08d\n", 10);
+    // Formatação de casas decimais:
+    printf("%.3f\n", 3.1415);
+    // Notação científica:
+    printf("%e\n", 32.1415);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: 00000010
+: 3.142
+: 3.214150e+01
+
+* Comando de entrada
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x;
+    scanf("%d", &x); // Leitura de um único valor
+    printf("x: %d\n", x);
+
+    float y;
+    scanf("%d%f", &x, &y); // Leitura de múltiplos valores
+    printf("x: %d\t y: %f\n", x, y);
+
+    return 0;
+}
+#+end_src
+
+* Referências / Agradecimentos
+
+- Linguagem C completa e descomplicada, André Backes
+- Material adaptado:
+  - Prof. Fabrício Benevenuto (https://homepages.dcc.ufmg.br/~fabricio/)
+  - Prof. Pedro O. S. Vaz de Melo (https://homepages.dcc.ufmg.br/~olmo/)

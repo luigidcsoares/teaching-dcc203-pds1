@@ -1,0 +1,244 @@
+% Created 2022-08-25 qui 07:19
+% Intended LaTeX compiler: pdflatex
+\documentclass[t, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage{tikz}
+\usetheme{default}
+\author{Luigi D. C. Soares}
+\date{DCC/UFMG (25/08/2022)}
+\title{Apresentação do Curso}
+\subtitle{Progamação e Desenvolvimento de Software I}
+\title[Apresentação do Curso]{Apresentação do Curso}
+\subtitle{Programação e Desenvolvimento de Software I}
+\author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+\texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+\institute[DCC/UFMG]{}
+\date[25/08/2022]{}
+%\usetheme{saori}
+\usetheme{ufmg}
+\hypersetup{
+ pdfauthor={Luigi D. C. Soares},
+ pdftitle={Apresentação do Curso},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}[label={sec:orgfdcf03a}]{Objetivos}
+\begin{itemize}
+\item Introduzir o aluno aos conceitos de \alert{algoritmos} e \alert{estruturas de dados}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4172ff5}]{Objetivos}
+\begin{itemize}
+\item Introduzir o aluno aos conceitos de \alert{algoritmos} e \alert{estruturas de dados}
+\begin{itemize}
+\item Noções da organização e funcionamento de um computador
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgededcc9}]{Objetivos}
+\begin{itemize}
+\item Introduzir o aluno aos conceitos de \alert{algoritmos} e \alert{estruturas de dados}
+\begin{itemize}
+\item Noções da organização e funcionamento de um computador
+\item Noções de linguagens imperativas (vamos utilizar a linguagem C)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2194848}]{Objetivos}
+\begin{itemize}
+\item Introduzir o aluno aos conceitos de \alert{algoritmos} e \alert{estruturas de dados}
+\begin{itemize}
+\item Noções da organização e funcionamento de um computador
+\item Noções de linguagens imperativas (vamos utilizar a linguagem C)
+\item Noções de estruturas de dados
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org302879b}]{Por quê aprender programação?}
+\begin{itemize}
+\item Diversas áreas se beneficiam de programação
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgba4fdea}]{Por quê aprender programação?}
+\begin{itemize}
+\item Diversas áreas se beneficiam de programação
+\begin{itemize}
+\item Simulações, análise de dados, sistemas embutidos, sensores
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge217b59}]{Por quê aprender programação?}
+\begin{itemize}
+\item Diversas áreas se beneficiam de programação
+\begin{itemize}
+\item Simulações, análise de dados, sistemas embutidos, sensores
+\item Matemática computacional
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4d55f85}]{Por quê aprender programação?}
+\begin{itemize}
+\item Diversas áreas se beneficiam de programação
+\begin{itemize}
+\item Simulações, análise de dados, sistemas embutidos, sensores
+\item Matemática computacional
+\item Física computacional
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org593529c}]{Por quê aprender programação?}
+\begin{itemize}
+\item Diversas áreas se beneficiam de programação
+\begin{itemize}
+\item Simulações, análise de dados, sistemas embutidos, sensores
+\item Matemática computacional
+\item Física computacional
+\item Química, Estatística, Economia, Linguística
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org5e8ce5b}]{Organização do curso - Avaliação}
+\begin{itemize}
+\item Provas teóricas: 3 x 25 pontos
+\item Laboratório: 10 pontos
+\item Trabalhos práticos: 15 pontos
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgaaf569f}]{Organização do curso - Aulas}
+\begin{itemize}
+\item Aulas teóricas:
+\begin{itemize}
+\item Apresentação dos conceitos
+\item Toda terça-feira
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org6c6ab83}]{Organização do curso - Aulas}
+\begin{itemize}
+\item Aulas teóricas:
+\begin{itemize}
+\item Apresentação dos conceitos
+\item Toda terça-feira
+\end{itemize}
+
+\item Aulas práticas:
+\begin{itemize}
+\item Toda quinta-feira
+\item Suporte às aulas teóricas
+\item Resolução de exercícios e dúvidas
+\item Os exercícios serão liberados no início da aula e a entrega será até terça a noite
+\item Soluções dos exercícios serão liberadas toda quarta
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org0a163d7}]{Organização do curso - Laboratórios}
+\begin{itemize}
+\item Laboratórios Virtuais de Programação (VPL)
+\begin{itemize}
+\item Ambiente de programação integrado ao Moodle
+\item Correção automática utilizando diversos casos de teste
+\item Lembre-se sempre de apertar o botão \alert{avaliar}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org6d47566}]{Organização do curso - Trabalhos Práticos}
+\begin{itemize}
+\item Individual
+\item Entrega no Moodle (VPL), correção automática com verificação de cópias
+\item Julgamento do código:
+\begin{itemize}
+\item Facilidade de leitura
+\item Comentários (se pertinente)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2eecaaf}]{Organização do curso - Provas}
+\begin{itemize}
+\item Conteúdo base: livro, slides, exercícios
+\item Faça todos os VPLs para praticar
+\item Procure exercícios além dos VPLs (livro, internet)
+\begin{itemize}
+\item Codewars (\url{https://codewars.com})
+\item Exercism (\url{https://exercism.org/tracks/c/exercises})
+\item LeetCode (\url{https://leetcode.com/problemset/all/})
+\item etc
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org6121370}]{Bibliografia}
+\begin{itemize}
+\item Livro-texto: Linguagem C completa e descomplicada, André Backes
+
+\item Outros:
+\begin{itemize}
+\item Introdução às Estruturas de Dados, Waldemar Celes
+\item Projeto de Algoritmos com implementação em Pascal e C, 3a edição,
+Nivio Ziviani
+\item Algoritmos estruturados, 3a edição, Harry Farrer, Becker, Faria, Matos,
+dos Santos, Maia
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgce48e31}]{Notas e Frequência}
+\begin{itemize}
+\item Terá lista de presença toda aula
+\item Presença não é obrigatória, só venha se quiser
+
+\item Se nota >= 60, aprovado!
+\item Se nota < 60 e for infrequente (frequência < 75\%)
+\begin{itemize}
+\item Reprovado, conceito F
+\item Não tem direito a exame especial
+\end{itemize}
+
+\item Exame especial: matéria do semestre inteiro!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org44fde7d}]{Dúvidas?}
+\begin{itemize}
+\item Fórum do Moodle (preferência)
+\item E-mail:
+\begin{itemize}
+\item \href{mailto:gleison.mendonca@dcc.ufmg.br}{gleison.mendonca@dcc.ufmg.br} (Turmas \alert{TA1} e \alert{TF})
+\item \href{mailto:luigi.domenico@dcc.ufmg.br}{luigi.domenico@dcc.ufmg.br} (Turmas \alert{TA2} e \alert{TM3})
+\item Adicionar [PDS 1] ao assunto
+\end{itemize}
+\item Dúvidas complexas: podemos marcar um horário para atendimento individual
+\end{itemize}
+\end{frame}
+\end{document}

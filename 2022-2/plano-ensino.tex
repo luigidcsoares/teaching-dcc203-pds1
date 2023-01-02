@@ -1,0 +1,201 @@
+% Created 2022-12-01 qui 10:35
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage[brazil, portuges]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage[margin=1.2in]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{datetime2}
+\makeatletter
+\DeclareRobustCommand*\course[1]{\gdef\@course{#1}}
+\DeclareRobustCommand*\institution[1]{\gdef\@institution{#1}}
+\DeclareRobustCommand*\semester[1]{\gdef\@semester{#1}}
+\title{Plano de Ensino / Cronograma}
+\author{Profs. Gleison S. D. Mendonça e Luigi D. C. Soares}
+\course{Programação e Desenvolvimento de Software I}
+\institution{DCC / ICEx / UFMG}
+\semester{2022.2}
+\let\thetitle\@title{}
+\let\theauthor\@author{}
+\let\thecourse\@course{}
+\let\theinstitution\@institution{}
+\let\thesemester\@semester{}
+\let\thedate\@date{}
+\makeatother
+\DTMnewdatestyle{brDateStyle}{%
+\renewcommand{\DTMdisplaydate}[4]{##3/##2/##1}%
+\renewcommand{\DTMDisplaydate}{\DTMdisplaydate}}
+\DTMsetdatestyle{brDateStyle}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+\lhead{\theauthor \\ \thecourse}
+\rhead{\theinstitution \\ \thesemester}
+\rfoot{\thepage}
+\hypersetup{
+colorlinks,
+linkcolor={red!50!black},
+citecolor={blue!50!black},
+urlcolor={blue!80!black}
+}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.6)}, 
+ pdflang={Portuges}}
+\begin{document}
+
+\begin{center}
+\Large\bfseries\thetitle
+\end{center}
+
+\section{Informações Gerais}
+\label{sec:orgd42ea55}
+
+\setlist{leftmargin=1.5em, itemsep=0em}
+\begin{description}
+\item[{Código da disciplina:}] DCC203
+\item[{Semestre:}] 2022.2
+\item[{Professores:}] Luigi Domenico Cecchini Soares e Gleison Souza Diniz Mendonça
+\item[{Contatos:}] (Adicionar [PDS 1] no assunto)
+\begin{itemize}
+\item Turmas \textbf{TA1} e \textbf{TF}:  \href{mailto:gleison.mendonca@dcc.ufmg.br}{gleison.mendonca@dcc.ufmg.br}
+\item Turmas \textbf{TA2} e \textbf{TM3}:  \href{mailto:luigi.domenico@dcc.ufmg.br}{luigi.domenico@dcc.ufmg.br}
+\end{itemize}
+\item[{Horários:}] \phantom{}
+\begin{itemize}
+\item Turma \textbf{TA1} e \textbf{TA2}: 3a e 5a, 07:30 -- 09:10
+\item Turma \textbf{TM3}: 3a e 5a, 13:00 -- 14:40
+\item Turma \textbf{TF}: 3a 20:55 -- 22:35, 5a 19:00 -- 20:40
+\end{itemize}
+\item[{Salas:}] (a definir)
+\end{description}
+
+\section{Ementa}
+\label{sec:orgcf736df}
+Introdução ao funcionamento de um computador e ao desenvolvimento de
+programas. Desenvolvimento de programas em uma linguagem de alto nível.  Tipos
+de dados simples, apontadores, variáveis compostas homogêneas e heterogêneas.
+Entrada e saída. Estruturas de controle e repetição. Funções e ferramentas de
+modularização.
+
+\section{Objetivos}
+\label{sec:orgf693ef2}
+Os principais objetivos da disciplina são possibilitar ao aluno:
+\begin{itemize}
+\item O conhecimento dos princípios de estrutura e funcionamento do computador;
+\item O domínio de técnicas de resolução de problemas por computador (técnicas de
+desenvolvimento de algoritmos), através de aulas teóricas e aulas em
+laboratório;
+\item A utilização do computador para a resolução de problemas computacionais
+através da implementação de algoritmos.
+\end{itemize}
+
+\section{Avaliação}
+\label{sec:org7f4b7af}
+
+\begin{itemize}
+\item Provas (3 x 25 pontos): 75 pontos
+\item Atividades práticas (VPLs): 10 pontos
+\item Trabalhos práticos: 15 pontos
+\end{itemize}
+
+\section{Bibliografia}
+\label{sec:orgea145a8}
+
+\begin{itemize}
+\item Livro-texto: Linguagem C completa e descomplicada, André Backes \textbf{[A]}
+\item Complementar:
+\vspace{-0.5em}
+\begin{itemize}
+\item Introdução às Estruturas de Dados, Waldemar Celes
+\item Projeto de Algoritmos com implementação em Pascal e C, 3a edição,
+Nivio Ziviani
+\item Algoritmos estruturados, 3a edição, Harry Farrer, Becker, Faria, Matos,
+dos Santos, Maia
+\end{itemize}
+\end{itemize}
+
+\section{Cronograma (\color{red}\bfseries Última atualização: \today)}
+\label{sec:org48eddd5}
+
+\fcolorbox{black}{green!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Não há aula \qquad
+\fcolorbox{black}{gray!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Sala de Aula \qquad
+\fcolorbox{black}{yellow!25}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Laboratório \qquad
+\fcolorbox{black}{red!15}{\rule{0pt}{6pt}\rule{6pt}{0pt}}\quad Prova
+
+\begin{longtable}{>{\bfseries}ccl>{\bfseries}cc}
+\toprule
+\textbf{Aula} & \textbf{Data} & \textbf{Tópico} & \textbf{Trabalhos Práticos} & \textbf{Ref.}\\\empty
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{Continuação da página anterior} \\\empty
+\toprule
+
+\textbf{Aula} & \textbf{Data} & \textbf{Tópico} & \textbf{Trabalhos Práticos} & \textbf{Ref.} \\\empty
+
+\midrule
+\endhead
+\midrule\multicolumn{5}{r}{Continua na página seguinte} \\
+\endfoot
+\endlastfoot
+\rowcolor{green!25} & 23/08 & Não haverá aula: Recepção calouros &  & \\\empty
+\rowcolor{yellow!25} 01 & 25/08 & Apresentação do curso + Introdução &  & \\\empty
+\rowcolor{gray!25} 02 & 30/08 & Variáveis, Tipos e Entrada/Saída &  & A.2\\\empty
+\rowcolor{yellow!25} 03 & 01/09 & Prática 01 &  & \\\empty
+\rowcolor{gray!25} 04 & 06/09 & Operadores &  & A.3\\\empty
+\rowcolor{yellow!25} 05 & 08/09 & Prática 02 &  & \\\empty
+\rowcolor{gray!25} 06 & 13/09 & Comandos condicionais &  & A.4\\\empty
+\rowcolor{yellow!25} 07 & 15/09 & Prática 03 &  & \\\empty
+\rowcolor{gray!25} 08 & 20/09 & Comando de repetição &  & A.5\\\empty
+\rowcolor{yellow!25} 09 & 22/09 & Prática 04 &  & \\\empty
+\rowcolor{gray!25} 10 & 27/09 & Arranjos e Strings &  & A.6, A.7\\\empty
+\rowcolor{yellow!25} 11 & 29/09 & Prática 05 / Dúvidas & Divulgação TP 01 & \\\empty
+\rowcolor{gray!25} 12 & 04/10 & Revisão / Dúvidas &  & \\\empty
+\rowcolor{red!15} 13 & 06/10 & \textbf{Prova teórica 01} &  & \\\empty
+\rowcolor{gray!25} 14 & 11/10 & Módulos e Funções &  & A.9\\\empty
+\rowcolor{yellow!25} 15 & 13/10 & Prática 06 &  & \\\empty
+\rowcolor{gray!25} 16 & 18/10 & Tipos definidos pelo programador &  & A.8\\\empty
+\rowcolor{yellow!25} 17 & 20/10 & Prática 07 &  & \\\empty
+\rowcolor{gray!25} 18 & 25/10 & Ponteiros &  & A.9, A.10\\\empty
+\rowcolor{yellow!25} 19 & 27/10 & Prática 08 &  & \\\empty
+\rowcolor{gray!25} 20 & 01/11 & Alocação Dinâmica + Prática 09 & Entrega TP 01 & A.11\\\empty
+\rowcolor{yellow!25} 21 & 03/11 & Revisão / Dúvidas & Divulgação TP 02 & \\\empty
+\rowcolor{red!15} 22 & 08/11 & \textbf{Prova teórica 02} &  & \\\empty
+\rowcolor{yellow!25} 23 & 10/11 & Entrevista TP 01 &  & \\\empty
+\rowcolor{green!25} & 15/11 & Feriado: Proclamação da República &  & \\\empty
+\rowcolor{yellow!25} 24 & 17/11 & Prática 10 &  & \\\empty
+\rowcolor{gray!25} 25 & 22/11 & Recursão &  & A.9\\\empty
+\rowcolor{yellow!25} 26 & 24/11 & Prática 11 &  & \\\empty
+\rowcolor{gray!25} 27 & 29/11 & Arquivos + Prática 12 & Entrega TP 02 & A.12\\\empty
+\rowcolor{yellow!25} 28 & 01/12 & Revisão / Dúvidas &  & \\\empty
+\rowcolor{red!15} 29 & 06/12 & \textbf{Prova teórica 03} &  & \\\empty
+\rowcolor{green!25} & 08/12 & Feriado: Nossa Senhora da Conceição &  & \\\empty
+\rowcolor{green!25} & 13/12 & Não haverá aula: Semifinal da Copa &  & \\\empty
+\rowcolor{red!15} 30 & 15/12 & \textbf{Prova substitutiva} &  & \\\empty
+ &  &  &  & \\\empty
+\rowcolor{red!15} & 20/12 & \textbf{Exame especial} &  & \\\empty
+\bottomrule
+\end{longtable}
+\end{document}

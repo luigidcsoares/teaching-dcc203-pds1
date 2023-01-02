@@ -1,0 +1,41 @@
+
+
+
+#+title: Operadores
+
+
+
+#+author: Luigi D. C. Soares
+#+email: <luigi.domenico@dcc.ufmg.br>
+
+#+subtitle: Progamação e Desenvolvimento de Software I
+
+#+date: DCC/UFMG (06/09/2022)
+
+#+startup: beamer
+#+options: H:1 num:t toc:nil \n:nil @:t ::t |:t ^:{} -:t f:t *:t <:t
+#+options: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+latex_class: beamer
+#+latex_class_options: [t, aspectratio=169]
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usetikzlibrary{calc, tikzmark}
+#+latex_header: \usepackage{booktabs}
+#+beamer_header: \title[Operadores]{Operadores}
+#+beamer_header: \subtitle{Programação e Desenvolvimento de Software I}
+#+beamer_header: \author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+#+beamer_header: Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+#+beamer_header: \texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+#+beamer_header: \institute[DCC/UFMG]{}
+#+beamer_header: \date[06/09/2022]{}
+#+beamer_header: %\usetheme{saori}
+#+beamer_header: %\usemintedstyle{native}
+#+beamer_header: \usetheme{ufmg}
+
+* LEMBRETE
+
+SHIFT NEGATIVO / OVERFLOW:
+
+- the right operand is signed and negative, or
+- the right operand is greater than or equal to the width of the left operand (after promotion), or
+- the left operand is signed and negative, or
+- a left shift is performed and the left operand is signed and the resultant value is not representable as a signed integer

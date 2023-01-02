@@ -1,0 +1,1029 @@
+% Created 2022-09-05 seg 14:43
+% Intended LaTeX compiler: pdflatex
+\documentclass[t, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[newfloat]{minted}
+\usepackage{tikz}
+\usetikzlibrary{calc, tikzmark}
+\usepackage{booktabs}
+\usetheme{default}
+\author{Luigi D. C. Soares}
+\date{DCC/UFMG (06/09/2022)}
+\title{Operadores}
+\subtitle{Progamação e Desenvolvimento de Software I}
+\title[Operadores]{Operadores}
+\subtitle{Programação e Desenvolvimento de Software I}
+\author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+\texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+\institute[DCC/UFMG]{}
+\date[06/09/2022]{}
+%\usetheme{saori}
+%\usemintedstyle{native}
+\usetheme{ufmg}
+\hypersetup{
+ pdfauthor={Luigi D. C. Soares},
+ pdftitle={Operadores},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\begin{frame}[label={sec:orgb35d814}]{Operadores}
+\begin{itemize}
+\item O que é/para que serve um operador?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org6c42abf}]{Operadores}
+\begin{itemize}
+\item O que é/para que serve um operador?
+\item Qual a diferença entre um operador \alert{aritmético} e um operador \alert{relacional}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org5593e40}]{Operadores}
+\begin{itemize}
+\item O que é/para que serve um operador?
+\item Qual a diferença entre um operador \alert{aritmético} e um operador \alert{relacional}?
+\item E o que é um operador \alert{unário}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org76719ca}]{Operadores}
+\begin{itemize}
+\item O que é/para que serve um operador?
+\item Qual a diferença entre um operador \alert{aritmético} e um operador \alert{relacional}?
+\item E o que é um operador \alert{unário}?
+\item E um operador \alert{binário}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org1af1204}]{Operadores}
+\begin{itemize}
+\item O que é/para que serve um operador?
+\item Qual a diferença entre um operador \alert{aritmético} e um operador \alert{relacional}?
+\item E o que é um operador \alert{unário}?
+\item E um operador \alert{binário}?
+\item E um operador \alert{bit a bit}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org539d090},fragile]{Operadores Aritméticos - Binários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    int y = 3;
+    // +: Adição de dois números
+    printf("x + y = %d\n", x + y);
+    // -: Subtração de dois números
+    printf("x - y = %d\n", x - y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x + y = 13
+x - y = 7
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org485cf27},fragile]{Operadores Aritméticos - Binários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    int y = 3;
+    // *: Multiplicação de dois números
+    printf("x * y = %d\n", x * y);
+    // /: Divisão (quociente) de dois números
+    printf("x / y = %d\n", x / y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x * y = 30
+x / y = 3
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[label={sec:org7b8123d},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org10d8e88},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\item Hm\ldots{} a formatação no comando de saída: \texttt{\%d} vs \texttt{\%f}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgf43269c},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\item Hm\ldots{} a formatação no comando de saída: \texttt{\%d} vs \texttt{\%f}
+\end{itemize}
+
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    int y = 3;
+    // /: Divisão (quociente) de dois números
+    printf("x / y = %f\n", x / y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x / y = 0.000000
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org354f032},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\item Hm\ldots{} a formatação no comando de saída: \texttt{\%d} vs \texttt{\%f}
+\item Agora o resultado foi 0???
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge54773b},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\item Hm\ldots{} a formatação no comando de saída: \texttt{\%d} vs \texttt{\%f}
+\item Agora o resultado foi 0??? A operação foi realizada com dois \alert{inteiros!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgf51f90c},fragile]{Operadores Aritméticos - Binários}
+ \begin{itemize}
+\item Por que o resultado de \texttt{x / y} foi 3? Não deveria ser 3.333\ldots{}?
+\item Hm\ldots{} a formatação no comando de saída: \texttt{\%d} vs \texttt{\%f}
+\item Agora o resultado foi 0??? A operação foi realizada com dois \alert{inteiros!}
+\end{itemize}
+
+\vspace{-0.25cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    int y = 3;
+    // /: Divisão (quociente) de dois números
+    printf("x / y = %f\n", (float) x / y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x / y = 3.333333
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org64bba93},fragile]{Operadores Aritméticos - Binários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    int y = 3;
+    // /: Divisão (quociente) de dois números
+    printf("x / y = %f\n", (float) x / y);
+    // %: Módulo (resto da divisão) de dois números
+    printf("x %% y = %d\n", x % y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x / y = 3.333333
+x % y = 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org57abf8f},fragile]{Operadores Aritméticos - Unários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // +: mais unário ou positivo
+    printf("+x = %d\n", +x);
+    // -: menos unário ou negação
+    printf("-x = %d\n", -x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
++x = 10
+-x = -10
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org35509df},fragile]{Operadores Aritméticos - Unários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // ++: pré ou pós incremento
+    printf("++x = %d\n", ++x);
+    printf("x++ = %d\n", x++);
+    printf("x = %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+++x = 11
+x++ = 11
+x = 12
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org6f76921},fragile]{Operadores Aritméticos - Unários}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // ++: pré ou pós decremento
+    printf("--x = %d\n", --x);
+    printf("x-- = %d\n", x--);
+    printf("x = %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+--x = 9
+x-- = 9
+x = 8
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org089e073},fragile]{Operadores Aritméticos - Unários}
+ Diferença entre pré e pós incremento/decremento
+\begin{itemize}
+\item \texttt{y = x++}: incrementa depois de atribuir
+\item \texttt{y = ++x}: incrementa antes de atribuir
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org0e8aa0c},fragile]{Expressões}
+ \begin{itemize}
+\item Expressões são combinações de variáveis, constantes, literais e operadores
+\item Exemplos:
+\begin{itemize}
+\item \texttt{anos = dias / 365.25;}
+\item \texttt{i = i + 3;}
+\item \texttt{c = a * b + d / e;}
+\item \texttt{c = a * (b + d) / e;}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org42e6128},fragile]{Exercício 1}
+ Escreva um programa que solicita ao usuário um inteiro de três
+algarismos e imprima na tela o seu valor invertido.
+
+\vspace{0.5cm}
+\alert{Exemplo}
+\begin{verbatim}
+Entrada: 123
+Valor invertido: 321
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org79aa5d0},fragile]{Exercício 1 - Solução}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int numero;
+    scanf("%d", &numero);
+
+    int unidade = numero % 10;
+    int dezena = (numero / 10) % 10;
+    int centena = numero / 100;
+
+    int invertido = 100 * unidade + 10 * dezena + centena;
+    printf("valor invertido: %d\n", invertido);
+    return 0;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[label={sec:orgdbb734c},fragile]{Conversão de Tipos (Cast)}
+ \begin{itemize}
+\item Força o resultado da expressão a ser de um tipo especificado
+\item \texttt{(tipo) expressão}
+\begin{itemize}
+\item \texttt{(float) x}
+\item \texttt{(int) x * 5.25}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb953ce2},fragile]{Conversão de Tipos (Cast)}
+ \begin{itemize}
+\item Força o resultado da expressão a ser de um tipo especificado
+\item \texttt{(tipo) expressão}
+\begin{itemize}
+\item \texttt{(float) x}
+\item \texttt{(int) x * 5.25}
+\end{itemize}
+\end{itemize}
+
+\vspace{-0.25cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    float f = x / 7;
+    printf("%f\n", f);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+1.0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org2662217},fragile]{Conversão de Tipos (Cast)}
+ \begin{itemize}
+\item Força o resultado da expressão a ser de um tipo especificado
+\item \texttt{(tipo) expressão}
+\begin{itemize}
+\item \texttt{(float) x}
+\item \texttt{(int) x * 5.25}
+\end{itemize}
+\end{itemize}
+
+\vspace{-0.25cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    float f = (float) x / 7;
+    printf("%f\n", f);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+1.428571
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org1d94ea9},fragile]{Conversão de Tipos (Cast)}
+ \begin{itemize}
+\item Força o resultado da expressão a ser de um tipo especificado
+\item \texttt{(tipo) expressão}
+\begin{itemize}
+\item \texttt{(float) x}
+\item \texttt{(int) x * 5.25}
+\end{itemize}
+\item O nível de prioridade (precedência) da conversão é maior que da divisão
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org6eee1aa}]{Operadores Bit-a-Bit}
+\begin{itemize}
+\item Operações bit-a-bit ajudam programadores que queiram trabalhar com o
+computador em ``baixo nível''
+\item Essas operações só podem ser usadas nos tipos char, short, int e long
+\item O número é representado por sua forma binária e as operações são
+feitas em cada bit dele
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb4c59b5},fragile]{Operadores Bit-a-Bit}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    char x = 10;
+    char y = 3;
+    // &: "E" ("And") bit-a-bit
+    printf("x & y = %d\n", x & y);
+    // |: "Ou" ("Or") bit-a-bit
+    printf("x | y = %d\n", x | y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x & y = 2
+x | y = 11
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgff876ce}]{Operadores Bit-a-Bit - \& (E)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 101\bfseries\color{highlight}0\\
+\& & 0000 001\bfseries\color{highlight}1\\
+\hline
+ & 0000 001\bfseries\color{highlight}0\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item \alert{\color{highlight}0 \& 0 = 0}
+\item 0 \& 1 = 0 (o mesmo para 1 \& 0)
+\item 1 \& 1 = 1
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org2089767}]{Operadores Bit-a-Bit - \& (E)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 10{\bfseries\color{highlight}1}0\\
+\& & 0000 00{\bfseries\color{highlight}1}1\\
+\hline
+ & 0000 00{\bfseries\color{highlight}1}0\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item 0 \& 0 = 0
+\item 0 \& 1 = 0 (o mesmo para 1 \& 0)
+\item \alert{\color{highlight}1 \& 1 = 1}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org7ea9075}]{Operadores Bit-a-Bit - \& (E)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 1{\bfseries\color{highlight}0}10\\
+\& & 0000 0{\bfseries\color{highlight}0}11\\
+\hline
+ & 0000 0{\bfseries\color{highlight}0}10\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item \alert{\color{highlight}0 \& 0 = 0}
+\item 0 \& 1 = 0 (o mesmo para 1 \& 0)
+\item 1 \& 1 = 1
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org35849f4}]{Operadores Bit-a-Bit - \& (E)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 {\bfseries\color{highlight}1}010\\
+\& & 0000 {\bfseries\color{highlight}0}011\\
+\hline
+ & 0000 {\bfseries\color{highlight}0}010\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item 0 \& 0 = 0
+\item \alert{\color{highlight}0 \& 1 = 0 (o mesmo para 1 \& 0)}
+\item 1 \& 1 = 1
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:orgeb824a2}]{Operadores Bit-a-Bit - | (Ou)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 1010\\
+\(\mid\) & 0000 0011\\
+\hline
+ & 0000 1011\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item 0 | 0 = 0
+\item 0 | 1 = 1 (o mesmo para 1 | 0)
+\item 1 | 1 = 1
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org785fd86},fragile]{Operadores Bit-a-Bit}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    char x = 10;
+    char y = 3;
+    // ^: "Ou exclusivo" ("Exclusive Or, xor") bit-a-bit
+    printf("x ^ y = %d\n", x ^ y);
+    // ~: Complemento bit-a-bit
+    printf("~x = %d\n", ~x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x ^ y = 9
+~x = -11
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orga9c63da}]{Operadores Bit-a-Bit - \(\land\) (Ou exclusivo)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+ & 0000 1010\\
+\(\land\) & 0000 0011\\
+\hline
+ & 0000 1001\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item 0 \(\land\) 0 = 0
+\item 0 \(\land\) 1 = 1 (o mesmo para 1 \(\land\) 0)
+\item 1 \(\land\) 1 = 0
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org98a0bb8}]{Operadores Bit-a-Bit - \(\sim\) (Complemento)}
+\begin{columns}
+\begin{column}{0.5\columnwidth}
+\begin{center}
+\begin{tabular}{cc}
+\(\sim\) & 0000 1010\\
+\hline
+ & 1111 0101\\
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\columnwidth}
+\begin{itemize}
+\item \(\sim\)0 = 1
+\item \(\sim\)1 = 0
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org457b7a7},fragile]{Operadores Bit-a-Bit}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    char x = 10;
+    char y = 3;
+    // <<: Deslocamento a esquerda
+    printf("x << y = %d\n", x << y);
+    // >>: Deslocamento a direita
+    printf("x >> y = %d\n", x >> y);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x << y = 80
+x >> y = 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org239ccf6}]{Operadores Bit-a-Bit - Deslocamento}
+\begin{itemize}
+\item 0000 1010 \(<<\) 3 = 0101 0000
+\item 0000 1010 \(>>\) 3 = 0000 0001
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org23b9016},fragile]{Operadores Simplificados}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // +=: soma e atribui, equivalente a x = x + 3
+    x += 3;
+    printf("x += 3: %d\n", x);
+    // -=: subtrai e atribui, equivalente a x = x - 2
+    x -= 2;
+    printf("x -= 2: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x += 3: 13
+x -= 2: 11
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgf461c1d},fragile]{Operadores Simplificados}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // *=: multiplica e atribui, equivalente a x = x * 3
+    x *= 3;
+    printf("x *= 3: %d\n", x);
+    // /=: divide e atribui quociente, equivalente a x = x / 2
+    x /= 2;
+    printf("x /= 2: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x *= 3: 30
+x /= 2: 15
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org0dfd175},fragile]{Operadores Simplificados}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // %=: divide e atribui resto, equivalente a x = x % 3
+    x %= 3;
+    printf("x %= 3: %d\n", x);
+    // &=: "E" bit-a-bit e atribui, equivalente a x = x & 2
+    x &= 2;
+    printf("x &= 2: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x %= 3: 1
+x &= 2: 0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org81b72bc},fragile]{Operadores Simplificados}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // |=: "Ou" bit-a-bit e atribui, equivalente a x = x | 3
+    x |= 3;
+    printf("x |= 3: %d\n", x);
+    // <<=: shift a esquerda e atribui, equivalente a x = x << 2
+    x <<= 2;
+    printf("x <<= 2: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x |= 3: 11
+x <<= 2: 44
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgf00cb3c}]{Overflow e Underflow}
+\begin{itemize}
+\item Quando representamos um valor menor ou maior que o permitido pelo tipo, ocorre
+um erro de cálculo
+\begin{itemize}
+\item Overflow: valor superior ao permitido
+\item Underflow: valor inferior ao permitido
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgac66284},fragile]{Underflow - Exemplo}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    short x = -32768;
+    printf("Valor antes: %d\n", x);
+    x--; // Gerando um underflow
+    printf("Valor depois: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+Valor antes: -32768
+Valor depois: 32767
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org052383e},fragile]{Overflow - Exemplo}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    short x = 32767;
+    printf("Valor antes: %d\n", x);
+    x++; // Gerando um overflow
+    printf("Valor depois: %d\n", x);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+Valor antes: 32767
+Valor depois: -32768
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org6bbc634}]{Overflow e Underflow}
+\begin{itemize}
+\item Não dão erro: o programa \alert{continua a execução} na
+\alert{maioria} das linguagens de programação
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgeab63d1}]{Overflow e Underflow}
+\begin{itemize}
+\item Não dão erro: o programa \alert{continua a execução} na
+\alert{maioria} das linguagens de programação
+
+\item \alert{Moral da história:} procure saber quais são os valores máximos e mínimos que
+seu programa deve suportar, e escolha o tamanho da variável de acordo
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb286133}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Operadores relacionais são utilizados na comparação de valores
+\item Esse tipo de operador retorna \alert{verdadeiro} ou \alert{falso}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org692968d}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Operadores relacionais são utilizados na comparação de valores
+\item Esse tipo de operador retorna \alert{verdadeiro} ou \alert{falso}
+\begin{itemize}
+\item Qual o tipo desses valores?
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org054cfe5}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Operadores relacionais são utilizados na comparação de valores
+\item Esse tipo de operador retorna \alert{verdadeiro} ou \alert{falso}
+\begin{itemize}
+\item Qual o tipo desses valores? \alert{lógico} ou \alert{booleano}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org1b89c1b}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Operadores relacionais são utilizados na comparação de valores
+\item Esse tipo de operador retorna \alert{verdadeiro} ou \alert{falso}
+\begin{itemize}
+\item Qual o tipo desses valores? \alert{lógico} ou \alert{booleano}
+\item Mas C não possui um tipo \alert{bool} por padrão, nem literais ``verdadeiro'' e ``falso''
+\item Logo, utilizamos o inteiro \alert{1} para verdadeiro e \alert{0} para falso
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org990a80e},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // <: menor
+    printf("x < 10? %d\n", x < 10);
+    // <=: menor ou igual
+    printf("x <= 10? %d\n", x <= 10);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x < 10? 0
+x <= 10? 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org0d13d02},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // >: maior
+    printf("x > 10? %d\n", x > 10);
+    // >=: maior ou igual
+    printf("x >= 10? %d\n", x >= 10);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x > 10? 0
+x >= 10? 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orge84941f},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int x = 10;
+    // ==: igual
+    printf("x == 10? %d\n", x == 10);
+    // !=: diferente
+    printf("x != 10? %d\n", x != 10);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+x == 10? 1
+x != 10? 0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org27c3ee8}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Existe uma biblioteca chamada \alert{stdbool} que fornece o tipo \alert{bool}
+e os valores \alert{true} (verdadeiro) e \alert{false} (falso)
+\item Podemos utilizá-la para tornar o código mais legível
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7f4af16},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+#include <stdbool.h>
+int main(int argc, char *argv[]) {
+    bool verdadeiro = true;
+    printf("Verdadeiro: %d\n", verdadeiro);
+    bool falso = false;
+    printf("Falso: %d\n", falso);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+Verdadeiro: 1
+Falso: 0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgfcac18d}]{Operadores Relacionais e Lógicos}
+\begin{itemize}
+\item Operadores lógicos são utilizados para combinar valores
+lógicos (verdadeiro e falso)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgfb18d98},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    char c = '5';
+    // &&: "E" ("And") lógico
+    printf("O caractere é um número? %d\n", c >= '0' && c <= '9');
+    // ||: "Ou" ("Or") lógico
+    printf("O caractere é a letra 'A'? %d\n", c == 'a' || c == 'A');
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+O caractere é um número? 1
+O caractere é a letra 'A'? 0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org43eafdd},fragile]{Operadores Relacionais e Lógicos}
+ \vspace{-0.5cm}
+\begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+#include <stdbool.h>
+int main(int argc, char *argv[]) {
+    char c = '5';
+    bool eh_numero = c >= '0' && c <= '9';
+    // !: "Não" ("Not", negação)
+    printf("O caractere *não* é um número? %d\n", !eh_numero);
+    return 0;
+}
+\end{minted}
+
+\begin{verbatim}
+O caractere *não* é um número? 0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgd80e2fa}]{Operadores Relacionais e Lógicos}
+\begin{center}
+\begin{tabular}{cccccc}
+\toprule
+a & b & !a & !b & a \&\& b & a \(\mid\mid\) b\\
+\midrule
+F & F & V & V & F & F\\
+F & V & V & F & F & V\\
+V & F & F & V & F & V\\
+V & V & F & F & V & V\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org26fc374},fragile]{Exercício 2}
+ Escreva um programa que solicita ao usuário um inteiro e verifica se
+o número informado é par ou ímpar.
+
+\vspace{0.5cm}
+\alert{Exemplo}
+\begin{verbatim}
+Entrada: 10
+É ímpar? Não
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:org2e50fc2},fragile]{Exercício 2 - Solução 1}
+ \begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int numero;
+    scanf("%d", &numero);
+    printf("É ímpar? %d\n", numero % 2 != 0);
+    return 0;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[label={sec:org80a6165},fragile]{Exercício 2 - Solução 2}
+ \begin{minted}[,frame=lines,framesep=2mm,linenos]{c}
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int numero;
+    scanf("%d", &numero);
+    printf("É ímpar? %d\n", numero & 1);
+    return 0;
+}
+\end{minted}
+\end{frame}
+\end{document}

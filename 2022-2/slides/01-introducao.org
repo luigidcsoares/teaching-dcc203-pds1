@@ -1,0 +1,651 @@
+
+
+
+#+title: Linguagem C - Introdução
+
+
+
+#+author: Luigi D. C. Soares
+#+email: <luigi.domenico@dcc.ufmg.br>
+
+#+subtitle: Progamação e Desenvolvimento de Software I
+
+#+date: DCC/UFMG (25/08/2022)
+
+#+startup: beamer latexpreview
+#+options: H:1 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+options: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+latex_class: beamer
+#+latex_class_options: [t, aspectratio=169]
+#+latex_header: \usepackage{tikz}
+#+beamer_header: \title[Linguagem C]{Linguagem C - Introdução}
+#+beamer_header: \subtitle{Programação e Desenvolvimento de Software I}
+#+beamer_header: \author[\tiny\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br]{%
+#+beamer_header: Gleison S. D. Mendonça, Luigi D. C. Soares\texorpdfstring{\\}{}
+#+beamer_header: \texttt{\{gleison.mendonca, luigi.domenico\}@dcc.ufmg.br}}
+#+beamer_header: \institute[DCC/UFMG]{}
+#+beamer_header: \date[25/08/2022]{}
+#+beamer_header: %\usetheme{saori}
+#+beamer_header: %\usemintedstyle{native}
+#+beamer_header: \usetheme{ufmg}
+
+* Linguagem C
+
+- Criada em 1972
+
+- Linguagem imperativa
+  - Uso de comandos: Se *x* _Faça!_ *y*
+  - Comandos alteram o estado do programa
+
+* Linguagem C
+
+- Criada em 1972
+
+- Linguagem imperativa
+  - Uso de comandos: Se *x* _Faça!_ *y*
+  - Comandos alteram o estado do programa
+
+- Linguagem procedural
+  - Decomposição de um problema em diferentes funções e módulos
+  - Reutilização de código
+
+* Linguagem C
+
+- Criada em 1972
+
+- Linguagem imperativa
+  - Uso de comandos: Se *x* _Faça!_ *y*
+  - Comandos alteram o estado do programa
+
+- Linguagem procedural
+  - Decomposição de um problema em diferentes funções e módulos
+  - Reutilização de código
+
+- Acesso de baixo nível á memória
+- Utilização de instruções Assembly (código de máquina)
+- Gera códigos geralmente mais velozes
+
+* Linguagem C
+
+- Criada em 1972
+
+- Linguagem imperativa
+  - Uso de comandos: Se *x* _Faça!_ *y*
+  - Comandos alteram o estado do programa
+
+- Linguagem procedural
+  - Decomposição de um problema em diferentes funções e módulos
+  - Reutilização de código
+
+- Acesso de baixo nível á memória
+- Utilização de instruções Assembly (código de máquina)
+- Gera códigos geralmente mais velozes
+
+- Sair de C para outras linguagens é mais fácil que o sentido oposto
+
+* Primeiro programa em C
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h> // Inclusão do módulo de entrada/saída
+
+// Ponto de entrada do programa
+int main(int argc, char *argv[]) {
+    // TODO
+    return 0;
+}
+#+end_src
+
+* Primeiro programa em C
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h> // Inclusão do módulo de entrada/saída
+
+// Ponto de entrada do programa
+int main(int argc, char *argv[]) {
+    // Escreve uma mensagem na tela de saída
+    printf("Olá mundo\n");
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: Olá mundo
+
+* Indentação
+
+- Espaçamento colocado antes de começar a escrever o código na linha
+
+* Indentação
+
+- Espaçamento colocado antes de começar a escrever o código na linha
+- É importante!
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) { printf("Olá mundo\n"); return 0; }
+#+end_src
+
+#+RESULTS:
+: Olá mundo
+
+* Primeiro problema
+
+Suponha que soma (+) e subtração (-) são as únicas operações disponíveis.
+
+Dados dois números inteiros positivos *A* e *B*, determine o *quociente* e o *resto*
+da divisão de *A* por *B.*
+
+* Primeiro problema
+
+*Ideia de solução*:
+- Representar os números *A* e *B* por retângulos de *larguras* proporcionais aos seus valores
+- Verificar quantas vezes *B* cabe em *A*
+#+latex: \vspace{0.5em}\centering\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,126); %set diagram left start at 0, and has height of 126
+
+%Shape: Rectangle [id:dp7852098459874652]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (41,21) -- (111,21) -- (111,51.03) -- (41,51.03) -- cycle ;
+%Shape: Rectangle [id:dp35920484998714075]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (41,61) -- (70.01,61) -- (70.01,92.03) -- (41,92.03) -- cycle ;
+%Shape: Rectangle [id:dp31032605623178733]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (180.67,19.67) -- (210.68,19.67) -- (210.68,50.7) -- (180.67,50.7) -- cycle ;
+%Shape: Rectangle [id:dp9954521977784945]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (210.68,19.67) -- (239.69,19.67) -- (239.69,50.7) -- (210.68,50.7) -- cycle ;
+%Shape: Rectangle [id:dp0077618542939301705]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (239.69,19.67) -- (249.67,19.67) -- (249.67,50.7) -- (239.69,50.7) -- cycle ;
+
+% Text Node
+\draw (67,27) node [anchor=north west][inner sep=0.75pt]  [font=\Large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {A};
+% Text Node
+\draw (47,68) node [anchor=north west][inner sep=0.75pt]  [font=\Large,color={rgb, 255:red, 255; green, 255; blue, 255 }  ,opacity=1 ] [align=left] {B};
+\end{tikzpicture}
+
+- *A = 7*
+- *B = 3*
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+*Voltando ao nosso problema:*
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+*Voltando ao nosso problema:*
+
+- Sejam A e B os valores dados
+- Atribuir o valor 0 ao quociente (q)
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+*Voltando ao nosso problema:*
+
+- Sejam A e B os valores dados
+- Atribuir o valor 0 ao quociente (q)
+- Enquanto *B <= A*:
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+*Voltando ao nosso problema:*
+
+- Sejam A e B os valores dados
+- Atribuir o valor 0 ao quociente (q)
+- Enquanto *B <= A*:
+  - Somar 1 ao valor de q
+  - Subtrair B do valor de A
+
+* Algoritmo
+
+- Para resolver um problema, primeiro precisamos de uma descrição clara da solução
+- Um algoritmo é uma sequência de instruções (receita)
+  - Finita
+  - Não pode ser ambígua
+
+*Voltando ao nosso problema:*
+
+- Sejam A e B os valores dados
+- Atribuir o valor 0 ao quociente (q)
+- Enquanto *B <= A*:
+  - Somar 1 ao valor de q
+  - Subtrair B do valor de A
+- Atribuir o valor final de A ao resto (r)
+
+* Implementando o algoritmo
+#+latex: \vspace{-2em}
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int A = 7;
+    int B = 3;
+    // TODO
+    return 0;
+}
+#+end_src
+
+* Implementando o algoritmo
+#+latex: \vspace{-2em}
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int a = 7;
+    int b = 3;
+    int q = 0; // Inicializando quociente
+    while (b <= a) {
+        q = q + 1; // Somar 1 ao valor de q
+        a = a - b; // Subtrair B do valor de A
+    }
+    int r = a; // resto = valor final de A
+    printf("Quociente: %d\n", q);
+    printf("Resto:  %d\n", r);
+    return 0;
+}
+#+end_src
+#+RESULTS:
+: Quociente: 2
+: Resto:  1
+
+* Algoritmo vs Implementação
+
+- Note que o algoritmo (pseudo-código) que escrevemos anteriormente é mais
+  flexível, sem muitas regras
+- A implementação em alguma linguagem (nosso caso = C), por outro lado, obedece
+  *regras de sintaxe*
+
+* Erro de Sintaxe
+
+- Em C, todo comando deve ser terminado por ponto e vírgula
+
+* Erro de Sintaxe
+
+- Em C, todo comando deve ser terminado por ponto e vírgula
+
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results none
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+    int a = 7;
+    return 0 // expected ';' before '}' token
+}
+#+end_src
+
+* Erro de Lógica
+
+- *Atenção!* Não basta obter um programa executável!! Será que ele está correto?
+- Considere o seguinte problema: determinar e exibir o valor de =y = seno(1,5)=
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+    // TODO
+    return 0;
+}
+#+end_src
+
+* Erro de Lógica
+
+- *Atenção!* Não basta obter um programa executável!! Será que ele está correto?
+- Considere o seguinte problema: determinar e exibir o valor de =y = seno(1,5)=
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+    float y = sin(1.5);
+    printf("seno de 1,5 = %f\n", y);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: seno de 1,5 = 0.997495
+
+* Erro de Lógica
+
+- Se ao invés de =y = sin(1.5);= tivéssemos escrito =y = sin(2.5)=, o programa seria produzido e executaria normalmente
+#+attr_latex: :options frame=lines,framesep=2mm,linenos
+#+begin_src C :exports code :results output
+#include <stdio.h>
+#include <math.h>
+
+int main(int argc, char *argv[]) {
+    float y = sin(2.5);
+    printf("seno de 1,5 = %f\n", y);
+    return 0;
+}
+#+end_src
+
+#+RESULTS:
+: seno de 1,5 = 0.598472
+
+* Erro de Lógica
+
+- Se ao invés de =y = sin(1.5);= tivéssemos escrito =y = sin(2.5)=, o programa seria produzido e executaria normalmente
+- Embora um resultado tenha sido obtido, ele *não é correto*
+- Se um programa executável não produz os resultados corretos, é porque ele contém *erros de lógica* ou *bugs*
+- O processo de identificação e correção de erros de lógica é denominado *depuração* (*debug*).
+
+* Como o computador entende o que escrevemos?
+
+- Nosso programa em C é um texto
+- O computador entende textos?
+
+* Como o computador entende o que escrevemos?
+
+- Nosso programa em C é um texto
+- O computador entende textos?
+- *Não!* Computadores executam instruções escritas em formato binário (0's e 1's)
+- Precisamos traduzir nosso texto para *linguagem de máquina*
+
+* Como o computador entende o que escrevemos?
+
+- Nosso programa em C é um texto
+- O computador entende textos?
+- *Não!* Computadores executam instruções escritas em formato binário (0's e 1's)
+- Precisamos traduzir nosso texto para *linguagem de máquina*
+
+#+latex: \centering\vspace{0.5em}\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,170); %set diagram left start at 0, and has height of 170
+
+%Shape: Rectangle [id:dp7852098459874652]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (99,50) -- (170.5,50) -- (170.5,110) -- (99,110) -- cycle ;
+%Shape: Rectangle [id:dp240405123901279]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (320.5,49.5) -- (392,49.5) -- (392,109.5) -- (320.5,109.5) -- cycle ;
+%Shape: Free Drawing [id:dp02650560539042357]
+\draw  [color={rgb, 255:red, 178; green, 53; blue, 37 }  ,draw opacity=1 ][line width=3] [line join = round][line cap = round] (239,66) .. controls (236.9,55.48) and (251.28,52.56) .. (254.5,59) .. controls (258.98,67.97) and (247.87,69.94) .. (244.5,76) .. controls (242.78,79.1) and (242.41,89) .. (248.5,89) ;
+%Shape: Free Drawing [id:dp11935749666588036]
+\draw  [color={rgb, 255:red, 178; green, 53; blue, 37 }  ,draw opacity=1 ][line width=3] [line join = round][line cap = round] (247,100) .. controls (247,96.96) and (244.7,104.8) .. (248,101.5) .. controls (248.72,100.78) and (248.67,99.5) .. (248.5,98.5) .. controls (248.34,97.56) and (246.71,100) .. (246.5,100) ;
+
+% Text Node
+\draw (102,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{44.91pt}\setlength\topsep{0pt}
+\begin{center}
+Código \\(texto)
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (330,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{36.76pt}\setlength\topsep{0pt}
+\begin{center}
+1011\\0010
+\end{center}
+
+\end{minipage}};
+
+\end{tikzpicture}
+
+* Como o computador entende o que escrevemos?
+
+- Nosso programa em C é um texto
+- O computador entende textos?
+- *Não!* Computadores executam instruções escritas em formato binário (0's e 1's)
+- Precisamos traduzir nosso texto para *linguagem de máquina*
+
+#+latex: \centering\vspace{0.5em}\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,170); %set diagram left start at 0, and has height of 170
+
+%Shape: Rectangle [id:dp7852098459874652]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (99,50) -- (170.5,50) -- (170.5,110) -- (99,110) -- cycle ;
+%Shape: Rectangle [id:dp240405123901279]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (320.5,49.5) -- (392,49.5) -- (392,109.5) -- (320.5,109.5) -- cycle ;
+%Right Arrow [id:dp6605035354622533]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (190,71.25) -- (257.5,71.25) -- (257.5,60.5) -- (302.5,82) -- (257.5,103.5) -- (257.5,92.75) -- (190,92.75) -- cycle ;
+
+% Text Node
+\draw (102,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{44.91pt}\setlength\topsep{0pt}
+\begin{center}
+Código \\(texto)
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (330,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{36.76pt}\setlength\topsep{0pt}
+\begin{center}
+1011\\0010
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (192.5,74) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 255; green, 255; blue, 255 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{65.31pt}\setlength\topsep{0pt}
+\begin{center}
+Compilador
+\end{center}
+
+\end{minipage}};
+
+\end{tikzpicture}
+
+* Como o computador entende o que escrevemos?
+
+- Nosso programa em C é um texto
+- O computador entende textos?
+- *Não!* Computadores executam instruções escritas em formato binário (0's e 1's)
+- Precisamos traduzir nosso texto para *linguagem de máquina*
+
+#+latex: \centering\vspace{0.5em}\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,170); %set diagram left start at 0, and has height of 170
+
+%Shape: Rectangle [id:dp7852098459874652]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (99,50) -- (170.5,50) -- (170.5,110) -- (99,110) -- cycle ;
+%Shape: Rectangle [id:dp240405123901279]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (320.5,49.5) -- (392,49.5) -- (392,109.5) -- (320.5,109.5) -- cycle ;
+%Right Arrow [id:dp6605035354622533]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (190,71.25) -- (257.5,71.25) -- (257.5,60.5) -- (302.5,82) -- (257.5,103.5) -- (257.5,92.75) -- (190,92.75) -- cycle ;
+
+% Text Node
+\draw (102,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{44.91pt}\setlength\topsep{0pt}
+\begin{center}
+Código \\(texto)
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (330,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{36.76pt}\setlength\topsep{0pt}
+\begin{center}
+1011\\0010
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (192.5,74) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 255; green, 255; blue, 255 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{65.31pt}\setlength\topsep{0pt}
+\begin{center}
+Compilador
+\end{center}
+
+\end{minipage}};
+
+\end{tikzpicture}
+
+- O processo de "tradução" do código é chamado de *compilação*
+- O *compilador* recebe o *código fonte* e produz um *programa executável*
+- =gcc main.c -o main=
+
+* Compilação
+
+- É um pouquinho mais complexo que isso
+
+* Compilação
+
+- É um pouquinho mais complexo que isso
+
+#+latex: \centering\vspace{0.5em}\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,270); %set diagram left start at 0, and has height of 270
+
+%Shape: Rectangle [id:dp7852098459874652]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (11,50) -- (82.5,50) -- (82.5,110) -- (11,110) -- cycle ;
+%Shape: Rectangle [id:dp240405123901279]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (260.5,49.5) -- (349.5,49.5) -- (349.5,109.5) -- (260.5,109.5) -- cycle ;
+%Straight Lines [id:da08666006294713702]
+\draw    (90,79.98) -- (112.5,80.46) ;
+\draw [shift={(114.5,80.5)}, rotate = 181.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp38842710070627606]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (120.5,50) -- (219,50) -- (219,110) -- (120.5,110) -- cycle ;
+%Straight Lines [id:da5494063713073924]
+\draw    (228,79.98) -- (250.5,80.46) ;
+\draw [shift={(252.5,80.5)}, rotate = 181.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp10236773740516991]
+\draw  [fill={rgb, 255:red, 178; green, 53; blue, 37 }  ,fill opacity=1 ] (261,155) -- (350,155) -- (350,215) -- (261,215) -- cycle ;
+%Straight Lines [id:da28904142100608676]
+\draw    (305,120) -- (305,140) ;
+\draw [shift={(305,144)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp312816305480381]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (120.5,149.5) -- (220.5,149.5) -- (220.5,231) -- (120.5,231) -- cycle ;
+%Straight Lines [id:da17984903366089666]
+\draw    (228,190) -- (250.5,190) ;
+\draw [shift={(252.5,190)}, rotate = 181.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp9233001220236068]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 255 }  ,fill opacity=1 ] (391,155) -- (480,155) -- (480,215) -- (391,215) -- cycle ;
+%Straight Lines [id:da8370387235079737]
+\draw    (356.5,190) -- (379,190) ;
+\draw [shift={(381,190)}, rotate = 181.21] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (13.5,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{44.91pt}\setlength\topsep{0pt}
+\begin{center}
+Código \\Fonte
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (265.5,61) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{56.46pt}\setlength\topsep{0pt}
+\begin{center}
+Programa\\Objeto
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (122.5,68) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 255; green, 255; blue, 255 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{65.31pt}\setlength\topsep{0pt}
+\begin{center}
+Compilador
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (275,176) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 255; green, 255; blue, 255 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{43.55pt}\setlength\topsep{0pt}
+\begin{center}
+Ligador
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (123.5,163) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{65.32pt}\setlength\topsep{0pt}
+\begin{center}
+Programa\\Objeto das \\Bibliotecas
+\end{center}
+
+\end{minipage}};
+% Text Node
+\draw (397,170) node [anchor=north west][inner sep=0.75pt]  [font=\large,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {\begin{minipage}[lt]{56.46pt}\setlength\topsep{0pt}
+\begin{center}
+Programa\\Exec
+\end{center}
+
+\end{minipage}};
+
+\end{tikzpicture}
+
+
+* Ambiente de Programação
+
+- O que vamos precisar?
+
+* Ambiente de Programação
+
+- O que vamos precisar?
+
+- Compilador de C: =gcc=
+  - Linux: já vem instalado
+  - Windows: MinGW (tutorial de instalação no Moodle)
+
+* Ambiente de Programação
+
+- O que vamos precisar?
+
+- Compilador de C: =gcc=
+  - Linux: já vem instalado
+  - Windows: MinGW (tutorial de instalação no Moodle)
+
+- Editor de texto
+  - Bloco de notas
+  - Notepad++: [[https://notepad-plus-plus.org]]
+  - Visual Studio Code (VS code): https://code.visualstudio.com/
+  - Atom: https://atom.io
+  - Sublime: https://www.sublimetext.com/
+
+* Ambiente de Programação
+
+- O que vamos precisar?
+
+- Compilador de C: =gcc=
+  - Linux: já vem instalado
+  - Windows: MinGW (tutorial de instalação no Moodle)
+
+- Editor de texto
+  - Bloco de notas
+  - Notepad++: [[https://notepad-plus-plus.org]]
+  - Visual Studio Code (VS code): https://code.visualstudio.com/
+  - Atom: https://atom.io
+  - Sublime: https://www.sublimetext.com/
+
+- Ambiente integrado: Code::Blocks (tutorial no Moodle)
+
+* Ambiente de Programação
+
+- O que vamos precisar?
+
+- Compilador de C: =gcc=
+  - Linux: já vem instalado
+  - Windows: MinGW (tutorial de instalação no Moodle)
+
+- Editor de texto
+  - Bloco de notas
+  - Notepad++: [[https://notepad-plus-plus.org]]
+  - Visual Studio Code (VS code): https://code.visualstudio.com/
+  - Atom: https://atom.io
+  - Sublime: https://www.sublimetext.com/
+
+- Ambiente integrado: Code::Blocks (tutorial no Moodle)
+- Ambiente online: [[https://repl.it]]
+
+* Referências / Agradecimentos
+
+- Linguagem C completa e descomplicada, André Backes
+- Material adaptado:
+  - Prof. Fabrício Benevenuto (https://homepages.dcc.ufmg.br/~fabricio/)
+  - Prof. Pedro O. S. Vaz de Melo (https://homepages.dcc.ufmg.br/~olmo/)

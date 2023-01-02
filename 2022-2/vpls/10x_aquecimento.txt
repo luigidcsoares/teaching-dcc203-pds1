@@ -1,0 +1,41 @@
+1) Escreva um programa que leia do usuário o nome de um arquivo texto.
+Em seguida, mostre na tela quantas linhas esse arquivo possui.
+
+2) Escreva um programa que leia do usuário os nomes de dois arquivos texto.
+Crie um terceiro arquivo texto com o conteúdo dos dois primeiros
+juntos (o conteúdo do primeiro seguido do conteúdo do segundo).
+
+3) Escreva um programa para converter o conteúdo de um arquivo texto
+em caracteres maiúsculos. O programa deverá ler do usuário o nome do
+arquivo a ser convertido e o nome do arquivo a ser salvo.
+
+4) Elabore um programa no qual o usuário informe o nome de um arquivo
+texto e uma palavra, e o programa informe o número de vezes que aquela
+palavra aparece dentro do arquivo.
+
+5) Faça um programa que leia um arquivo texto contendo uma lista de
+compras.  Cada linha do arquivo possui nome, quantidade e valor
+unitário do produto. O programa então exibe o total da compra.
+
+6) Escreva uma função que receba como parâmetro o nome de um arquivo
+texto e retorne quantas vogais esse arquivo possui.
+
+7) Um arquivo texto possui uma matriz de valores inteiros dentro dele.
+Os dois primeiros números são as dimensões da matriz (linhas e
+colunas), enquanto o restante dos números são os valores de cada
+elemento da matriz. Escreva uma função que receba o nome do arquivo e
+retorne o ponteiro para uma matriz alocada dinamicamente contendo os
+valores lidos do arquivo.
+
+8) Escreva uma função que receba um vetor e seu tamanho como
+parâmetros e sal- ve-a em um arquivo texto de nome “vetor.txt”. Cada
+valor do vetor deve ser salvo em uma linha do arquivo.
+
+9.a) Crie um programa que leia um inteiro `n` e, em seguida, leia
+`n` inteiros. Crie um arquivo binário e insira o inteiro `n` e os `n`
+valores lidos no arquivo.
+
+9.b) Crie um programa que leia um arquivo binário contendo uma
+quantidade qualquer de números (o arquivo criado na questão anterior).
+O primeiro número lido indica quantos valores existem no arquivo.
+Mostre na tela o maior e o menor valor lido.
